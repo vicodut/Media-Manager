@@ -1,0 +1,9 @@
+{
+  "name": "MedLib",
+  "version": "1.0.0",
+  "description": "",
+  "devDependencies": {
+    "allocine-api": "^0.1.6",
+    "grunt": "^0.4.5"
+  }
+}

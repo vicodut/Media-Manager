@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+    <head> 
+        <link rel="stylesheet" type="text/css" href="css/style2.css">
+        <script type="text/javascript" src="js/app.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/Font-Awesome/css/font-awesome.min.css">
+
+        <script type="text/javascript">
+            //<!--
+            function change_onglet(name)
+            {
+                document.getElementById(anc_onglet).className = 'onglet_0 liens';
+                document.getElementById(name).className = 'onglet_1 liens';
+                document.getElementById('contenu_onglet_'+anc_onglet).style.display = 'none';
+                document.getElementById('contenu_onglet_'+name).style.display = 'block';
+                anc_onglet = name;
+            }
+            var isMaximized = false;
+
+            /* init routines/watchers/listeners */
+            win.on('maximize', function() {
+                isMaximized = true;
+            });
+            win.on('unmaximize', function() {
+                isMaximized = false;
+            });
+
+            /* Fonctions */
+            function toggleMaximize () {
+                if (isMaximized === true) {
+                    win.unmaximize();
+                } else {
+                    win.maximize();
+                }
+            }
+            //-->
+        </script>
+    </head>
+    <body>
+        <div class="Tittle">
+            <p> Bibliotheque films / series. </p>
+            <span id="window-buttons">
+                <span id="button-close" class="button" onclick="window.close()"></span>
+                <span id="button-maximize" class="button" onclick="toggleMaximize()"></span>
+                <span id="button-minimize" class="button" onclick="win.minimize();"></span>
+            </span>
+
+
+        </div>
+                <div class="Bandeau"><span id="Switch">
+                    <span class ="onglet_0 liens" id="film"  onclick="javascript:change_onglet('film');"> <span class="lien"><i class="fa fa-film fa-2x "></i></span></span>
+
+                    <span class ="onglet_0 liens" id="serie" onclick="javascript:change_onglet('serie');"><span class="lien"><i class="fa fa-desktop fa-2x"></i></span></span>
+
+                    <span class ="onglet_0 liens" id="param" onclick="javascript:change_onglet('param');"><span class="lien"><i class="fa fa-sliders fa-2x"></i></span></span>
+                </span></div>
+        <div class="BandeauGauche">
+            <div class="Recherche2">
+                <input id="recherche2" type="text" results="5" placeholder="Rechercher" />
+                
+                <div id="br"><i class="fa fa-search"></i></div>
+            </div>
+            <div class="OptionFilm">
+                <ul>
+                    <li><i class="fa fa-tag"></i> Action</li>
+                    <li><i class="fa fa-tag"></i> Comedie</li>
+                    <li><i class="fa fa-tag"></i> Guerre</li>
+                    <li><i class="fa fa-tag"></i> Humour</li>
+                    <li>...</li>
+                </ul>
+            </div>
+        
+        </div>
+        
+        <div class="Contenu">
+            
+            <div class="contenu_onglet" id="contenu_onglet_film">
+                <div class="Tuile">
+                    <div id="titre"> Captain America</div>
+                    <div id="Pochette"></div>
+                    <div id="Note"> 7/10 </div>
+                    <div id="Modif"></div>
+                    <div id="Lire"></div>
+                </div>
+
+            </div>
+            <div class="contenu_onglet" id="contenu_onglet_serie">Contenu de l'onglet serie</div>
+            <div class="contenu_onglet" id="contenu_onglet_param">Contenu de l'onglet param
+            </div>
+        </div>
+
+
+        <script type="text/javascript">
+            //<!--
+            var anc_onglet = 'film';
+            change_onglet(anc_onglet);
+            //-->
+        </script>
+ 
+    </body>      
+</html>

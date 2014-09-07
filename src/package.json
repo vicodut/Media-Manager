@@ -1,0 +1,10 @@
+{
+    "name" : "Librarie",
+    "main" : "index.php",
+    "window": {
+        "width"  : 1000,
+        "height" : 550,
+        "toolbar": true,
+        "frame"  : true
+    }
+}
