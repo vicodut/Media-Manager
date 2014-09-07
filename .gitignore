@@ -39,5 +39,5 @@ Icon
 #Project
 #********
 *.sublime*
-nodes-modules
+nodes-modules/*
 js/lib
