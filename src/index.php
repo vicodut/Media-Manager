@@ -3,12 +3,13 @@
     <head> 
     	<link rel="stylesheet" type="text/css" href="css/style.css">
         <script type="text/javascript" src="js/app.js"></script>
-        <link rel="stylesheet" type="text/css" href="css/Font-Awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" type="text/css" href="js/libs/fontawesome/css/font-awesome.min.css">
     	<script type="text/javascript" src="js/Script.js"></script>
         <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
-        <script type="text/javascript" src="js/Mustache.js"></script>
-        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="js/libs/mustache/mustache.js"></script>
+        <script type="text/javascript" src="js/libs/jquery/dist/jquery.min.js"></script>
     </head>
+
     <body onload="Hello();">
     	<div class="Tittle">
     		<p> Bibliotheque films / series. </p>
@@ -67,8 +68,6 @@
                     </div>
                     {{/films}}
                 </div>
-
-
                 
             <div class="FicheFilm" id="fiche">
                 <i class="fa fa-times fa-2x" id="closeFiche" onclick="javascript:ficheClose();"></i>
@@ -93,25 +92,9 @@
             </div>
 
             <div class="contenu_onglet" id="contenu_onglet_serie">Contenu de l'onglet serie
-                <div id="c"><input type="button" onclick="Hello();" /></div>
-                <div id="content-films-list" class="container-body active">
-                    {{#films}}
-                    <div class="Tuile">
-                        <div id="hover">
-                            <div id="Lire"><i class="fa fa-eye fa-2x"></i></div>
-                            <div class="rating">
-                                <span></span><span></span><span></span><span></span><span></span>
-                            </div>
-                        </div>
-                        <img id="Pochette" src="css/guardian.jpg" />
-                        <div id="titre"title="{{title}}">{{title}}</div>
-                </div>
-                    {{/films}}
-                </div>
+            <input type="file" multiple webkitdirectory mozdirectory msdirectory odirectory directory /> </div>
 
-
-            <div class="contenu_onglet" id="contenu_onglet_param">Contenu de l'onglet param
-            </div>
+            <div class="contenu_onglet" id="contenu_onglet_param">Contenu de l'onglet param</div>
 
         <script type="text/javascript">
 			//<!--

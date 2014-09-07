@@ -68,3 +68,4 @@ function Hello(){
     console.log(filmsList);
     $('#contenu_onglet_film').html(Mustache.render($('#contenu_onglet_film').html(), {films : filmsList}));
 }
+
