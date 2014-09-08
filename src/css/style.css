@@ -275,9 +275,10 @@ p {
 	text-align: center;
 	z-index: 3;
 }
-/*.hidden {
+.hidden {
 	display: none;
-}*/
+}
+
 .Tuile:hover > #hover {
 	 -webkit-transition: margin-top 0.6s ease;
 	 margin-top: 0px;

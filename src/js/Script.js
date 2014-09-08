@@ -41,52 +41,29 @@ function toggleMaximize () {
 }
 
 
-/*function Hello() {
-    var fs = require('fs');
-    var path = require('path');
-    
-    var data = JSON.parse(fs.readFileSync('Data/Data.json', 'utf8'));
-
-    var filmsFolder = data.path;
-    var filmsList = [];
-    var tpl = $('#contenu_onglet_film').html();
-
-    function getDirectories() {
-        return fs.readdirSync(filmsFolder).filter(function (file) {
-        return fs.statSync(path.join(filmsFolder, file)).isDirectory();
-        });
-    }
-
-    var dirs = getDirectories();
-
-    for(var i in dirs){
-        filmsList[i] = {"title": dirs[i]};
-    }
-
-    console.log(filmsList);
-    $('#contenu_onglet_film').html(Mustache.render(tpl, {films : filmsList})).removeClass('hidden');
-}*/
-
-
 function Hello() {
+    document.getElementById('tuiles').style.display = 'none';
     var fs = require('fs');
     var path = require('path');
     var tpl = $('#contenu_onglet_film').html();
+    var filmsList = {};
 
-    console.log(fs.existsSync("Data/library.json"));
-    if(fs.existsSync("Data/library.json")) {
-        var data = JSON.parse(fs.readFileSync('Data/Data.json', 'utf8'));
-        $('#contenu_onglet_film').html(Mustache.render(tpl, {films : data}));
-    } else {
-        
-        document.getElementById('tuiles').setAttribute("style","display:none;");
-        document.getElementById('Contenu').setAttribute("style","text-align:center;");
-        document.getElementById('error').setAttribute("style","display:inline;");
-        document.getElementById("error").innerHTML = "Parametres le fichier de librarie";
-    }
-    
-
-
+    fs.exists("Data/library.json", function (exists) {
+        if (exists) {
+            console.log("library.json found");
+            fs.readFile("Data/library.json", "utf-8", function (err, data) {
+                console.log(data);
+                filmsList = JSON.parse(data);
+                $('#contenu_onglet_film').html(Mustache.render(tpl, {films : filmsList})).removeClass('hidden');
+                document.getElementById('tuiles').style.display = 'inline-block';
+            });
+        } else {
+            console.log("library.json not found");
+            document.getElementById('tuiles').style.display = 'none';
+            document.getElementById('error').style.display = 'block';
+            document.getElementById("error").innerHTML = "Veuillez donner un dossier librairie dans les paramètre";
+        };
+    });
 }
 
 

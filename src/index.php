@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head> 
+        <meta charset="UTF-8">
     	<link rel="stylesheet" type="text/css" href="css/style.css">
         <script type="text/javascript" src="js/app.js"></script>
         <link rel="stylesheet" type="text/css" href="js/libs/fontawesome/css/font-awesome.min.css">
@@ -54,7 +55,7 @@
         	
         	<div class="contenu_onglet" id="contenu_onglet_film">
             <span id="error" style="display: none;"></span>
-                <div id="tuiles" class="hidden">
+                <div id="tuiles">
                     {{#films}}
                     <article class="Tuile" onclick="javascript:ficheOpen('{{title}}');">
                         <div id="hover">
