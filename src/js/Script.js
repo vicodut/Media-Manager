@@ -44,7 +44,7 @@ function toggleMaximize () {
 function Hello() {
     var fs = require('fs');
     var path = require('path');
-    var tpl = $('#contenu_onglet_film').html();
+    var tpl = $('#tuiles').html();
     var filmsList = {};
 
     fs.exists("Data/library.json", function (exists) {
@@ -55,17 +55,17 @@ function Hello() {
                 filmsList = JSON.parse(data);
                 var tab = [];
                 for(var x in filmsList){
-                    console.log(filmsList);
+                    console.log(filmsList[x]);
                     tab.push(filmsList[x]);
                 }
-                $('#contenu_onglet_film').html(Mustache.render(tpl, {films : tab})).removeClass('hidden');
-                document.getElementById('tuiles').style.display = 'inline-block';
+                $('#tuiles').html(Mustache.render(tpl, {films : tab})).removeClass('hidden');
+                $('#loading').remove();
             });
         } else {
             console.log("library.json not found");
-            document.getElementById('tuiles').style.display = 'none';
             document.getElementById('error').style.display = 'block';
-            document.getElementById("error").innerHTML = "Veuillez donner un dossier librairie dans les paramètre";
+            $('#loading').remove();
+            document.getElementById("error").innerHTML = "Veuillez donner un dossier librairie dans les paramètres";
         };
     });
 }

@@ -424,8 +424,20 @@ p {
 	border-radius: 3px;
 }
 #error {
-	margin-top: 15px;
-	margin-left: 35%;
+	left: 0px;
+	right: 0px;
+	text-align: center;
+	top: 0px;
+	bottom: 0px;
+	padding-top: 20%;
+}
+#loading {
+	left: 0px;
+	right: 0px;
+	text-align: center;
+	top: 0px;
+	bottom: 0px;
+	padding-top: 20%;
 }
 
 .filled{ color:rgb(52, 152, 219); }

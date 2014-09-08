@@ -42,3 +42,4 @@ Icon
 *.sublime*
 node_modules
 src/js/libs
+src/Data/library.json

@@ -56,9 +56,10 @@
         	
         	<div class="contenu_onglet" id="contenu_onglet_film">
             <span id="error" style="display: none;"></span>
-                <div id="tuiles" >
+                <div id="loading"> Chargement...</div>
+                <div id="tuiles" class="hidden">
                     {{#films}}
-                    <article class="Tuile" class="hidden" onclick="javascript:ficheOpen('{{title}}');">
+                    <article class="Tuile" onclick="javascript:ficheOpen('{{title}}');">
                         <div id="hover">
                             <div id="Lire"><i class="fa fa-eye fa-2x"></i></div>
                             <div class="rating">
