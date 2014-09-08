@@ -8,6 +8,7 @@ function dragNdrop () {
 
 	drop.ondragover = function () {
 		this.className = "hover";
+		document.getElementById('dropFolder').setAttribute("style","background-color:rgba(135, 130, 220,0.2);style","border-color:rgb(135, 130, 220);")
 		txt.innerHTML = "Drop the Folder";
 		return false;
 	}
@@ -29,8 +30,8 @@ function dragNdrop () {
 
 		if (isDir.isDirectory()) {
 			document.getElementById('dropFolder').setAttribute("style","border-color:rgb(130, 220, 135);background-color:rgba(130, 220, 135, 0.2);");
-			txt.innerHTML = "Thanks New Folder is: " + Folder;
 			save(Folder);
+			txt.innerHTML = "Thanks New Folder is: " + Folder;
 		} else {
 			document.getElementById('dropFolder').setAttribute("style","background-color:rgba(220, 130, 135,0.2);style","border-color:rgb(220, 130, 135);")
 			txt.innerHTML = "Please Drop a Folder";
@@ -45,7 +46,8 @@ function save (Folder) {
 
     var path = require('path');
 
-    var filmsList = [];
+    var filmsList = {};
+
     var tpl = $('#contenu_onglet_film').html();
 
     function getDirectories() {
@@ -57,7 +59,7 @@ function save (Folder) {
     var dirs = getDirectories();
 
     for(var i in dirs){
-        filmsList[i] = {"title": dirs[i]};
+        filmsList[dirs[i]] = {"title": dirs[i], "path" : Folder + "\\" + dirs[i]};
     }
 
     var filmsList_str = JSON.stringify(filmsList);

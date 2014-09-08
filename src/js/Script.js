@@ -42,7 +42,6 @@ function toggleMaximize () {
 
 
 function Hello() {
-    document.getElementById('tuiles').style.display = 'none';
     var fs = require('fs');
     var path = require('path');
     var tpl = $('#contenu_onglet_film').html();
@@ -52,9 +51,14 @@ function Hello() {
         if (exists) {
             console.log("library.json found");
             fs.readFile("Data/library.json", "utf-8", function (err, data) {
-                console.log(data);
+                //console.log(data);
                 filmsList = JSON.parse(data);
-                $('#contenu_onglet_film').html(Mustache.render(tpl, {films : filmsList})).removeClass('hidden');
+                var tab = [];
+                for(var x in filmsList){
+                    console.log(filmsList);
+                    tab.push(filmsList[x]);
+                }
+                $('#contenu_onglet_film').html(Mustache.render(tpl, {films : tab})).removeClass('hidden');
                 document.getElementById('tuiles').style.display = 'inline-block';
             });
         } else {

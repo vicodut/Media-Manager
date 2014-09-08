@@ -49,15 +49,16 @@
                 <span class ="onglet_0 liens" id="param" onclick="javascript:change_onglet('param');"><span class="lien"><i class="fa fa-sliders fa-2x"></i></span></span>
             </span>
         </div>
+        <div class="Bandeau2"></div>
 
 
         <div class="Contenu" id="Contenu">
         	
         	<div class="contenu_onglet" id="contenu_onglet_film">
             <span id="error" style="display: none;"></span>
-                <div id="tuiles">
+                <div id="tuiles" >
                     {{#films}}
-                    <article class="Tuile" onclick="javascript:ficheOpen('{{title}}');">
+                    <article class="Tuile" class="hidden" onclick="javascript:ficheOpen('{{title}}');">
                         <div id="hover">
                             <div id="Lire"><i class="fa fa-eye fa-2x"></i></div>
                             <div class="rating">

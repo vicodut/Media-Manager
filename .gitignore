@@ -41,4 +41,4 @@ Icon
 #********
 *.sublime*
 node_modules
-js/libs/
+src/js/libs
