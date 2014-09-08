@@ -9,8 +9,10 @@ function change_onglet(name)
 }
 
 /*Fonctions pour ouvrir et fermer la fiche de détaille des films*/
-function ficheOpen()
+function ficheOpen(title)
 {
+    console.log(title);
+    ficheFilm(title);
     document.getElementById('fiche').style.display = 'block';
     document.getElementById('tuiles').setAttribute("style","-webkit-filter:blur(" + 2 + "px);")
 }
@@ -38,20 +40,16 @@ function toggleMaximize () {
     }
 }
 
-function getDirectories() {
-    var fs = require('fs');
 
-    return fs.readdirSync("C:\\Users\\Victor\\Documents\\Programation\\Node - WebKit\\MedLib\\src").filter(function (file) {
-       return fs.statSync(file).isDirectory();
-    });
-}
-
-function Hello(){
-
+function Hello() {
     var fs = require('fs');
     var path = require('path');
-    var filmsFolder = "C:\\Users\\Victor\\Videos";
+    
+    var data = JSON.parse(fs.readFileSync('Data/Data.json', 'utf8'));
+
+    var filmsFolder = data.path;
     var filmsList = [];
+    var tpl = $('#contenu_onglet_film').html();
 
     function getDirectories() {
         return fs.readdirSync(filmsFolder).filter(function (file) {
@@ -66,6 +64,23 @@ function Hello(){
     }
 
     console.log(filmsList);
-    $('#contenu_onglet_film').html(Mustache.render($('#contenu_onglet_film').html(), {films : filmsList}));
+    $('#contenu_onglet_film').html(Mustache.render(tpl, {films : filmsList})).removeClass('hidden');
 }
 
+function ficheFilm(name){
+    var fs = require("fs");
+    var data = JSON.parse(fs.readFileSync('Data/Data.json', 'utf8'));
+    var Folder = data.path;
+
+    document.getElementById("titreFicheFilm").innerHTML = name;
+    document.getElementById("nameFicheFilm").innerHTML = name;
+    document.getElementById("cheminFicheFilm").innerHTML = Folder + "\\" + name;
+}
+
+function readData() {
+    var fs = require("fs");
+
+    var data = JSON.parse(fs.readFileSync('Data/Data.json', 'utf8'));
+
+    console.log("Path = " + data.path);
+}

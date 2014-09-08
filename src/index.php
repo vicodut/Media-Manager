@@ -5,12 +5,11 @@
         <script type="text/javascript" src="js/app.js"></script>
         <link rel="stylesheet" type="text/css" href="js/libs/fontawesome/css/font-awesome.min.css">
     	<script type="text/javascript" src="js/Script.js"></script>
-        <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/libs/mustache/mustache.js"></script>
         <script type="text/javascript" src="js/libs/jquery/dist/jquery.min.js"></script>
     </head>
 
-    <body onload="Hello();">
+    <body onload="Hello();dragNdrop()">
     	<div class="Tittle">
     		<p> Bibliotheque films / series. </p>
             <span id="window-buttons">
@@ -50,13 +49,13 @@
             </span>
         </div>
 
+
         <div class="Contenu">
         	
         	<div class="contenu_onglet" id="contenu_onglet_film">
-
                 <div id="tuiles">
                     {{#films}}
-                    <div class="Tuile" onclick="javascript:ficheOpen();">
+                    <article class="Tuile" onclick="javascript:ficheOpen('{{title}}');">
                         <div id="hover">
                             <div id="Lire"><i class="fa fa-eye fa-2x"></i></div>
                             <div class="rating">
@@ -65,18 +64,19 @@
                         </div>
                         <img id="Pochette" src="css/guardian.jpg" />
                         <div id="titre"title="{{title}}">{{title}}</div>
-                    </div>
+                    </article>
                     {{/films}}
                 </div>
                 
             <div class="FicheFilm" id="fiche">
                 <i class="fa fa-times fa-2x" id="closeFiche" onclick="javascript:ficheClose();"></i>
                 <img id="Pochette" src="css/captamerica.jpg" />
-                <div id="titre"> Captain America</div>
+                <div class="titre" id="titreFicheFilm"></div>
                 <div class="Info">
                     <div id="Info">- Info -</div>
 
-                    <div><span>Nom:</span> Captain America</div>
+                    <div><span>Nom: </span><div style="display:inline;" id="nameFicheFilm"> Captain America</div></div>
+                    <div><span>Chemin: </span><div style="display:inline;" id="cheminFicheFilm"></div> </div>
                     <div><span>Acteurs:</span> </div>
                     <div><span>Duree:</span> 1h59</div>
                     <div><span>Qualite:</span> 1080p</div>
@@ -91,10 +91,14 @@
 
             </div>
 
-            <div class="contenu_onglet" id="contenu_onglet_serie">Contenu de l'onglet serie
-            <input type="file" multiple webkitdirectory mozdirectory msdirectory odirectory directory /> </div>
+            <div class="contenu_onglet" id="contenu_onglet_serie">Contenu de l'onglet serie</div>
 
-            <div class="contenu_onglet" id="contenu_onglet_param">Contenu de l'onglet param</div>
+            <div class="contenu_onglet" id="contenu_onglet_param">
+                <div id="dropFolder"><p id="dropTxt">
+                Drop un Dossier pour changer le dossier de bibliotheque ;)  </p>
+                </div>
+                <script type="text/javascript" src="js/Drop.js"></script>
+            </div>
 
         <script type="text/javascript">
 			//<!--
