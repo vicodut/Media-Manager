@@ -41,7 +41,7 @@ function toggleMaximize () {
 }
 
 
-function Hello() {
+/*function Hello() {
     var fs = require('fs');
     var path = require('path');
     
@@ -65,7 +65,30 @@ function Hello() {
 
     console.log(filmsList);
     $('#contenu_onglet_film').html(Mustache.render(tpl, {films : filmsList})).removeClass('hidden');
+}*/
+
+
+function Hello() {
+    var fs = require('fs');
+    var path = require('path');
+    var tpl = $('#contenu_onglet_film').html();
+
+    console.log(fs.existsSync("Data/library.json"));
+    if(fs.existsSync("Data/library.json")) {
+        var data = JSON.parse(fs.readFileSync('Data/Data.json', 'utf8'));
+        $('#contenu_onglet_film').html(Mustache.render(tpl, {films : data})).removeClass('hidden');
+    } else {
+        
+        document.getElementById('tuiles').setAttribute("style","display:none;");
+        document.getElementById('Contenu').setAttribute("style","text-align:center;");
+        document.getElementById('error').setAttribute("style","display:inline;");
+        document.getElementById("error").innerHTML = "Parametres le fichier de librarie";
+    }
+    
+
+
 }
+
 
 function ficheFilm(name){
     var fs = require("fs");

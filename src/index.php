@@ -50,10 +50,11 @@
         </div>
 
 
-        <div class="Contenu">
+        <div class="Contenu" id="Contenu">
         	
         	<div class="contenu_onglet" id="contenu_onglet_film">
-                <div id="tuiles">
+            <span id="error" style="display: none;"></span>
+                <div id="tuiles" class="hidden">
                     {{#films}}
                     <article class="Tuile" onclick="javascript:ficheOpen('{{title}}');">
                         <div id="hover">

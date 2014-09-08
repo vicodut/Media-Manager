@@ -421,6 +421,9 @@ p {
 	overflow: hidden;
 	border-radius: 3px;
 }
-
+#error {
+	margin-top: 15px;
+	margin-left: 35%;
+}
 
 .filled{ color:rgb(52, 152, 219); }

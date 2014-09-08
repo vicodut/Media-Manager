@@ -26,7 +26,8 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must ends with two \r.
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -39,5 +40,5 @@ Icon
 #Project
 #********
 *.sublime*
-nodes-modules/*
-js/lib
+/nodes-modules/*
+/js/lib
