@@ -40,5 +40,5 @@ Icon
 #Project
 #********
 *.sublime*
-/nodes-modules/*
-/js/lib
+node_modules
+js/libs/

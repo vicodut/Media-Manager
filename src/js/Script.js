@@ -76,7 +76,7 @@ function Hello() {
     console.log(fs.existsSync("Data/library.json"));
     if(fs.existsSync("Data/library.json")) {
         var data = JSON.parse(fs.readFileSync('Data/Data.json', 'utf8'));
-        $('#contenu_onglet_film').html(Mustache.render(tpl, {films : data})).removeClass('hidden');
+        $('#contenu_onglet_film').html(Mustache.render(tpl, {films : data}));
     } else {
         
         document.getElementById('tuiles').setAttribute("style","display:none;");
