@@ -4,6 +4,10 @@
 		"selected_items":
 		[
 			[
+				"co",
+				"console"
+			],
+			[
 				"get",
 				"getDirectories"
 			],
@@ -166,10 +170,6 @@
 			[
 				"wid",
 				"width"
-			],
-			[
-				"co",
-				"color"
 			],
 			[
 				"margin",
@@ -395,19 +395,17 @@
 			"file": "src/index.php",
 			"settings":
 			{
-				"buffer_size": 11208,
+				"buffer_size": 4704,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "/*Fonction de changement d'onglets : Films / Series / Paramètres*/\nfunction change_onglet(name)\n{\n	document.getElementById(anc_onglet).className = 'onglet_0 liens';\n	document.getElementById(name).className = 'onglet_1 liens';\n	document.getElementById('contenu_onglet_'+anc_onglet).style.display = 'none';\n	document.getElementById('contenu_onglet_'+name).style.display = 'block';\n	anc_onglet = name;\n}\n\n/*Fonctions pour ouvrir et fermer la fiche de détaille des films*/\nfunction ficheOpen()\n{\n    document.getElementById('fiche').style.display = 'block';\n    document.getElementById('tuiles').setAttribute(\"style\",\"-webkit-filter:blur(\" + 2 + \"px);\")\n}\nfunction ficheClose()\n{\n    document.getElementById('fiche').style.display = 'none';\n    document.getElementById('tuiles').setAttribute(\"style\",\"-webkit-filter:blur(\" + 0 + \"px);\")\n}\n\n/*Determine l'état de la fenètre pour soit la reduire soit plein ecran*/\nvar isMaximized = false;\n\n/* init routines/watchers/listeners */\nwin.on('maximize', function() {\n    isMaximized = true;\n});\nwin.on('unmaximize', function() {\n    isMaximized = false;\n});\nfunction toggleMaximize () {\n    if (isMaximized === true) {\n        win.unmaximize();\n    } else {\n        win.maximize();\n    }\n}\n\nfunction getDirectories() {\n    var fs = require('fs');\n\n    return fs.readdirSync(\"C:\\\\Users\\\\Victor\\\\Documents\\\\Programation\\\\Node - WebKit\\\\MedLib\\\\src\").filter(function (file) {\n       return fs.statSync(file).isDirectory();\n    });\n}\n\nfunction Hello(){\n    var fs = require('fs');\n    var text;\n    madiv = document.getElementById('c');\n    text = \"<p>\";\n\n    /*var files = fs.readdirSync('C:\\\\Users\\\\Victor\\\\Documents\\\\Programation\\\\Node - WebKit\\\\MedLib\\\\src');*/\n\n    files = getDirectories();\n\n    for (var i in files) {\n        console.log('File: ' + files[i]);\n        text = text + \"-\" +files[i] + \"</br>\";\n    }\n\n    var data = JSON.stringify(files);\n\n    console.log(Mustache.render('Salut {{nom}}', {nom: \"john\"}));\n    var nme = $(\"name\").html;\n\n    \n\n    text = text + \"</p>\";\n    madiv.innerHTML = text;\n}\n",
-			"file": "src/js/Script.js",
-			"file_size": 2125,
-			"file_write_time": 130545824940555171,
+			"file": "src/.bowerrc",
 			"settings":
 			{
-				"buffer_size": 2054,
-				"line_ending": "Windows"
+				"buffer_size": 52,
+				"line_ending": "Windows",
+				"name": "{"
 			}
 		},
 		{
@@ -419,35 +417,35 @@
 			}
 		},
 		{
+			"file": "src/js/Script.js",
+			"settings":
+			{
+				"buffer_size": 2063,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "src/Data/Data.json",
+			"settings":
+			{
+				"buffer_size": 45,
+				"line_ending": "Windows"
+			}
+		},
+		{
 			"file": "src/package.json",
 			"settings":
 			{
-				"buffer_size": 174,
-				"line_ending": "Windows"
+				"buffer_size": 201,
+				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/C/Users/Victor/Documents/Programation/Node - WebKit/node-webkit-v0.10.2-win-ia32/index.php",
+			"file": "package.json",
 			"settings":
 			{
-				"buffer_size": 3508,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/Victor/Documents/Programation/Node - WebKit/node-webkit-v0.10.2-win-ia32/js/Script2.js",
-			"settings":
-			{
-				"buffer_size": 179,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "/C/Users/Victor/Documents/Programation/Node - WebKit/node-webkit-v0.10.2-win-ia32/data.json",
-			"settings":
-			{
-				"buffer_size": 23,
-				"line_ending": "Windows"
+				"buffer_size": 146,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -604,13 +602,14 @@
 	"expanded_folders":
 	[
 		"/C/Users/Victor/Documents/Programation/Node - WebKit/MedLib",
-		"/C/Users/Victor/Documents/Programation/Node - WebKit/MedLib/src",
-		"/C/Users/Victor/Documents/Programation/Node - WebKit/MedLib/src/js"
+		"/C/Users/Victor/Documents/Programation/Node - WebKit/MedLib/src"
 	],
 	"file_history":
 	[
-		"/C/Users/Victor/Documents/Programation/Node - WebKit/node-webkit-v0.10.2-win-ia32/js/Script.js",
 		"/C/Users/Victor/Documents/Programation/Node - WebKit/node-webkit-v0.10.2-win-ia32/data.json",
+		"/C/Users/Victor/Documents/Programation/Node - WebKit/node-webkit-v0.10.2-win-ia32/js/Script2.js",
+		"/C/Users/Victor/Documents/Programation/Node - WebKit/node-webkit-v0.10.2-win-ia32/index.php",
+		"/C/Users/Victor/Documents/Programation/Node - WebKit/node-webkit-v0.10.2-win-ia32/js/Script.js",
 		"/C/Users/Victor/Documents/Programation/Node - WebKit/MedLib/package.json",
 		"/C/Users/Victor/Documents/Programation/Node - WebKit/MedLib/GruntFile.js",
 		"/C/Users/Victor/Documents/Programation/Node - WebKit/MedLib/src/data.json",
@@ -640,7 +639,6 @@
 		"/C/Users/Victor/Documents/Programation/Node - WebKit/node-webkit-v0.10.2-win-ia32/package.json",
 		"/C/Users/Victor/Documents/Programation/Node - WebKit/node-webkit-v0.10.2-win-ia32/formulaire.php",
 		"/C/Users/Victor/Documents/Programation/Node - WebKit/node-webkit-v0.10.2-win-ia32/css/style.css",
-		"/C/Users/Victor/Documents/Programation/Node - WebKit/node-webkit-v0.10.2-win-ia32/index.php",
 		"/C/Users/Victor/Documents/Programation/Node - WebKit/node-webkit-v0.10.2-win-ia32/index.html",
 		"/C/Users/Victor/Documents/Programation/Node - WebKit/node-webkit-v0.10.2-win-ia32/css/formulaire.php",
 		"/C/Users/Victor/Documents/Programation/Sarah/Nouveau/S.A.R.A.H..url",
@@ -735,8 +733,7 @@
 		"/C/users/victor/appdata/local/temp/sublime-sftp-browse-1396037898/Rasp/var/www/GPIO/css.css",
 		"/C/users/victor/appdata/local/temp/sublime-sftp-browse-1396037663/Rasp/var/www/GPIO2/css.css",
 		"/C/users/victor/appdata/local/temp/sublime-sftp-browse-1396031176/Rasp/var/www/GPIO2/index.php",
-		"/C/users/victor/appdata/local/temp/sublime-sftp-browse-1396031158/Rasp/var/www/GPIO2/css3.css",
-		"/C/users/victor/appdata/local/temp/sublime-sftp-browse-1396029296/Rasp/var/www/GPIO2/css3.css"
+		"/C/users/victor/appdata/local/temp/sublime-sftp-browse-1396031158/Rasp/var/www/GPIO2/css3.css"
 	],
 	"find":
 	{
@@ -842,7 +839,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 0,
 			"sheets":
 			[
 				{
@@ -851,15 +848,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11208,
+						"buffer_size": 4704,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2863,
-								2863
+								4443,
+								4443
 							]
 						],
 						"settings":
@@ -872,41 +869,40 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 797.0,
+						"translation.y": 1578.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 2,
+					"stack_index": 0,
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "src/js/Script.js",
+					"file": "src/.bowerrc",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2054,
+						"buffer_size": 52,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1996,
-								1996
+								52,
+								52
 							]
 						],
 						"settings":
 						{
+							"auto_name": "{",
 							"incomplete_sync": null,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 856.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 0,
+					"stack_index": 3,
 					"type": "text"
 				},
 				{
@@ -922,8 +918,8 @@
 						"selection":
 						[
 							[
-								5212,
-								5212
+								4659,
+								4659
 							]
 						],
 						"settings":
@@ -935,27 +931,87 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 4506.0,
+						"translation.y": 4347.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 5,
+					"stack_index": 1,
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "src/package.json",
+					"file": "src/js/Script.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 174,
+						"buffer_size": 2063,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								174,
-								174
+								772,
+								772
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 113.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 2,
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "src/Data/Data.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 45,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								40,
+								40
+							]
+						],
+						"settings":
+						{
+							"incomplete_sync": null,
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 4,
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "src/package.json",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 201,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								142,
+								0
 							]
 						],
 						"settings":
@@ -969,80 +1025,16 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 6,
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "/C/Users/Victor/Documents/Programation/Node - WebKit/node-webkit-v0.10.2-win-ia32/index.php",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 3508,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								464,
-								464
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/PHP/PHP.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 3,
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "/C/Users/Victor/Documents/Programation/Node - WebKit/node-webkit-v0.10.2-win-ia32/js/Script2.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 179,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								80,
-								54
-							]
-						],
-						"settings":
-						{
-							"incomplete_sync": null,
-							"remote_loading": false,
-							"synced": false,
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": -0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"stack_index": 1,
+					"stack_index": 5,
 					"type": "text"
 				},
 				{
 					"buffer": 6,
-					"file": "/C/Users/Victor/Documents/Programation/Node - WebKit/node-webkit-v0.10.2-win-ia32/data.json",
+					"file": "package.json",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 23,
+						"buffer_size": 146,
 						"regions":
 						{
 						},
@@ -1064,7 +1056,7 @@
 						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
-					"stack_index": 4,
+					"stack_index": 6,
 					"type": "text"
 				}
 			]
