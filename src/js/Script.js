@@ -60,7 +60,7 @@ function Hello() {
                     console.log(filmsList[x]);
                     tab.push(filmsList[x]);
                 }
-                $('#tuiles').html(Mustache.render(tpl, {films : tab})).removeClass('hidden');
+                $('#tuiles').html(Mustache.render(tpl, {films : filmsList})).removeClass('hidden');
                 $('#loading').remove();
             });
         } else {

@@ -32,6 +32,7 @@ function dragNdrop () {
 			document.getElementById('dropFolder').setAttribute("style","border-color:rgb(130, 220, 135);background-color:rgba(130, 220, 135, 0.2);");
 			save(Folder);
 			txt.innerHTML = "<br /><br /><br />Thanks New Folder is: " + Folder + " <br /> Mis à jour faite.";
+			$('#tuiles').html('{{#films}}<article class="Tuile" onclick="javascript:ficheOpen(\'{{title}}\');"> <div id="hover"> <div id="Lire"><i class="fa fa-eye fa-2x"></i></div> <div class="rating"> <span></span><span></span><span></span><span></span><span></span> </div> </div> <img id="Pochette" src="css/guardian.jpg" /> <div id="titre"title="{{title}}">{{title}}</div> </article> {{/films}}');
 			Hello();
 			document.getElementById('error').style.display = 'none';
 		} else {
