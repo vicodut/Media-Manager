@@ -40,8 +40,10 @@ function toggleMaximize () {
     }
 }
 
-
+/*Fonction Hello s'ouvre au chargement de la page et affiche les tuiles*/
 function Hello() {
+    console.log("Hello");
+
     var fs = require('fs');
     var path = require('path');
     var tpl = $('#tuiles').html();
@@ -70,7 +72,7 @@ function Hello() {
     });
 }
 
-
+/*Affiche les info sur le film*/
 function ficheFilm(name){
     var fs = require("fs");
     var data = JSON.parse(fs.readFileSync('Data/Data.json', 'utf8'));
@@ -79,12 +81,4 @@ function ficheFilm(name){
     document.getElementById("titreFicheFilm").innerHTML = name;
     document.getElementById("nameFicheFilm").innerHTML = name;
     document.getElementById("cheminFicheFilm").innerHTML = Folder + "\\" + name;
-}
-
-function readData() {
-    var fs = require("fs");
-
-    var data = JSON.parse(fs.readFileSync('Data/Data.json', 'utf8'));
-
-    console.log("Path = " + data.path);
 }

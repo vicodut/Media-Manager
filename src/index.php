@@ -21,13 +21,10 @@
     	</div>
 
         <div class="BandeauGauche">
-
             <div class="Recherche2">
                 <input id="recherche2" type="text" results="5" placeholder="Rechercher" />
-                
                 <div id="br"><i class="fa fa-search"></i></div>
             </div>
-
             <div class="OptionFilm">
                 <ul>
                     <li><i class="fa fa-tag"></i> Action</li>
@@ -37,15 +34,12 @@
                     <li>...</li>
                 </ul>
             </div>
-        
         </div>
         
         <div class="Bandeau">
             <span id="Switch">
                 <span class ="onglet_0 liens" id="film"  onclick="javascript:change_onglet('film');"> <span class="lien"><i class="fa fa-film fa-2x "></i></span></span>
-
                 <span class ="onglet_0 liens" id="serie" onclick="javascript:change_onglet('serie');"><span class="lien"><i class="fa fa-desktop fa-2x"></i></span></span>
-
                 <span class ="onglet_0 liens" id="param" onclick="javascript:change_onglet('param');"><span class="lien"><i class="fa fa-sliders fa-2x"></i></span></span>
             </span>
         </div>
@@ -87,12 +81,12 @@
                     <div><span>Synopsis:</span></div>
                     <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis arcu vel mi accumsan sagittis. Vestibulum facilisis enim augue.</div>
                 </div>
+
                 <div class="rating">
                    <span></span><span></span><span></span><span></span><span></span>
                 </div>
                 <div class="read"><i class="fa fa-play fa-3x"></i></div>
                 </div>
-
             </div>
 
             <div class="contenu_onglet" id="contenu_onglet_serie">Contenu de l'onglet serie</div>
