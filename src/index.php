@@ -62,7 +62,7 @@
                                 <span></span><span></span><span></span><span></span><span></span>
                             </div>
                         </div>
-                        <img id="Pochette" src="css/guardian.jpg" />
+                        <div id="Pochette"><img  src="{{img}}" /></div>
                         <div id="titre"title="{{title}}">{{title}}</div>
                     </article>
                     {{/films}}
