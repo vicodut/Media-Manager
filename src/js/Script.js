@@ -13,7 +13,7 @@ var img;
 function ficheOpen(title)
 {
     console.log(title);
-    findData(title,ficheFilm);
+    ficheFilm(title);
     console.log(img);
 
 }
@@ -51,10 +51,10 @@ function Hello() {
     var path = require('path');
     var filmsList = {};
 
-    fs.exists("Data/library.json", function (exists) {
+    fs.exists("Data/library2.json", function (exists) {
         if (exists) {
             console.log("library.json found");
-            fs.readFile("Data/library.json", "utf-8", function (err, data) {
+            fs.readFile("Data/library2.json", "utf-8", function (err, data) {
                 //console.log(data);
                 filmsList = JSON.parse(data);
                 var tab = [];
@@ -75,16 +75,27 @@ function Hello() {
 }
 
 /*Affiche les info sur le film*/
-function ficheFilm(infos){
+function ficheFilm(title){
     var fs = require("fs");
-    var data = JSON.parse(fs.readFileSync('Data/Data.json', 'utf8'));
-    var Folder = data.path;
+    var dataFilm = JSON.parse(fs.readFileSync('Data/library2.json', 'utf8'));
+    infos = [];
+
+    for(i in dataFilm) {
+        console.log('eee' + dataFilm[i].title);
+        if (dataFilm[i].title == title) {
+            infos[0] = dataFilm[i].title;
+            infos[1] = dataFilm[i].path;
+            infos[2] = dataFilm[i].img;
+            infos[3] = dataFilm[i].synopsis;
+        };
+    };
 
     document.getElementById('fiche').style.display = 'block';
     document.getElementById('tuiles').setAttribute("style","-webkit-filter:blur(" + 2 + "px);");
-    document.getElementById("titreFicheFilm").innerHTML = infos[0];
+    document.getElementById("titreFicheFilm").innerHTML = title;
     document.getElementById("nameFicheFilm").innerHTML = infos[0];
-    document.getElementById("cheminFicheFilm").innerHTML = Folder + "\\" + infos[0];
-    $('#img').html('<img id="Pochette" src="'+ infos[1]+'" />');
-    $('#desc').html(infos[2]);
+    document.getElementById("cheminFicheFilm").innerHTML = infos[1];
+    $('#img').html('<img id="Pochette" src="'+ infos[2] +'" />');
+    $('#desc').html(infos[3]);
+
 }
