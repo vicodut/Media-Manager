@@ -7,14 +7,15 @@ function change_onglet(name)
 	document.getElementById('contenu_onglet_'+name).style.display = 'block';
 	anc_onglet = name;
 }
+var img;
 
 /*Fonctions pour ouvrir et fermer la fiche de détaille des films*/
 function ficheOpen(title)
 {
     console.log(title);
-    ficheFilm(title);
-    document.getElementById('fiche').style.display = 'block';
-    document.getElementById('tuiles').setAttribute("style","-webkit-filter:blur(" + 2 + "px);")
+    findData(title,ficheFilm);
+    console.log(img);
+
 }
 function ficheClose()
 {
@@ -40,13 +41,14 @@ function toggleMaximize () {
     }
 }
 
+
 /*Fonction Hello s'ouvre au chargement de la page et affiche les tuiles*/
 function Hello() {
     console.log("Hello");
 
+    var tpl = $('#tuiles').html();
     var fs = require('fs');
     var path = require('path');
-    var tpl = $('#tuiles').html();
     var filmsList = {};
 
     fs.exists("Data/library.json", function (exists) {
@@ -57,7 +59,7 @@ function Hello() {
                 filmsList = JSON.parse(data);
                 var tab = [];
                 for(var x in filmsList){
-                    console.log(filmsList[x]);
+                    /*console.log(filmsList[x]);*/
                     tab.push(filmsList[x]);
                 }
                 $('#tuiles').html(Mustache.render(tpl, {films : filmsList})).removeClass('hidden');
@@ -73,12 +75,16 @@ function Hello() {
 }
 
 /*Affiche les info sur le film*/
-function ficheFilm(name){
+function ficheFilm(infos){
     var fs = require("fs");
     var data = JSON.parse(fs.readFileSync('Data/Data.json', 'utf8'));
     var Folder = data.path;
 
-    document.getElementById("titreFicheFilm").innerHTML = name;
-    document.getElementById("nameFicheFilm").innerHTML = name;
-    document.getElementById("cheminFicheFilm").innerHTML = Folder + "\\" + name;
+    document.getElementById('fiche').style.display = 'block';
+    document.getElementById('tuiles').setAttribute("style","-webkit-filter:blur(" + 2 + "px);");
+    document.getElementById("titreFicheFilm").innerHTML = infos[0];
+    document.getElementById("nameFicheFilm").innerHTML = infos[0];
+    document.getElementById("cheminFicheFilm").innerHTML = Folder + "\\" + infos[0];
+    $('#img').html('<img id="Pochette" src="'+ infos[1]+'" />');
+    $('#desc').html(infos[2]);
 }

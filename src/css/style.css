@@ -252,6 +252,10 @@ p {
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+.Tuile:hover {
+	overflow: hidder;
+	border-radius: 3px;
+}
 .Tuile #Pochette {
 	height: 215px;
 	border: 1px solid black;
@@ -312,7 +316,7 @@ p {
 .FicheFilm #Pochette {
 	float: left;
 	height: 80%;
-	margin: 50px 50px 0px 50px;
+	margin: 50px 0px 0px 50px;
 }
 #fiche {
 	display: none;
@@ -321,7 +325,8 @@ p {
 	height: 15px;
 	width: 15px;
 	cursor: pointer;
-	float: right;
+	position: absolute;
+	right: 0.5%;
 	margin: 25px;
 	margin-top: 22px;
 	color: #999;
@@ -330,6 +335,7 @@ p {
 	color: rgb(230,120,100);
 }
 .FicheFilm .Info {
+	height: 60%;
 	background-color: rgba(10,10,10,0.7);
 	border: 1px solid rgba(60,60,60,0.7);
 	border-radius: 3px;
@@ -341,15 +347,32 @@ p {
 	margin-top: 50px;
 	padding: 10px;
 	margin-left: 20px;
+	position: relative;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 .FicheFilm .Info #Info{
 	text-align: center;
 	font-size: 18px;
+	overflow: hidden;
+	-webkit-hyphens: auto;
+	text-overflow: ellipsis;
+	padding-bottom: 5px;
 }
 .FicheFilm .Info span{
 	border-bottom: 1px solid #999;
 	border-radius: 2px;
+}
+.FicheFilm .Info div{
+	overflow: hidden;
+}
+.FicheFilm #desc {
+	white-space: pre-line;
+		text-overflow: ellipsis;
+	overflow: hidden;
+
+	height: 100%;
 }
 
 .FicheFilm .read{
@@ -359,7 +382,7 @@ p {
 	float: left;
 	color: #999;
 	line-height: 30px;
-	margin-top: 50px;
+	margin-top: 30px;
 	padding: 10px;
 }
 .FicheFilm .read .fa{
@@ -374,10 +397,13 @@ p {
   font-family:FontAwesome;
   display: inline-block;
 	text-align: center;
-	width: 50%;
+	width: 100%;
 	float: left;
   direction: rtl;
 }
+.FicheFilm .rating span {
+	border: none;
+	}
 .FicheFilm .rating > span:before {
   display: inline-block;
   content: "\f006";

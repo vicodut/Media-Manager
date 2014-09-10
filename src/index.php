@@ -6,11 +6,13 @@
         <script type="text/javascript" src="js/app.js"></script>
         <link rel="stylesheet" type="text/css" href="js/libs/fontawesome/css/font-awesome.min.css">
     	<script type="text/javascript" src="js/Script.js"></script>
+        <script type="text/javascript" src="js/findData.js"></script>
         <script type="text/javascript" src="js/libs/mustache/mustache.js"></script>
         <script type="text/javascript" src="js/libs/jquery/dist/jquery.min.js"></script>
     </head>
 
-    <body onload="Hello();dragNdrop()">
+    <body onload="Hello();dragNdrop();">
+
     	<div class="Tittle">
     		<p> Bibliotheque films / series. </p>
             <span id="window-buttons">
@@ -68,23 +70,22 @@
                 
             <div class="FicheFilm" id="fiche">
                 <i class="fa fa-times fa-2x" id="closeFiche" onclick="javascript:ficheClose();"></i>
-                <img id="Pochette" src="css/captamerica.jpg" />
+                <span id="img"><img id="Pochette" src="css/captamerica.jpg" /></span>
                 <div class="titre" id="titreFicheFilm"></div>
                 <div class="Info">
                     <div id="Info">- Info -</div>
 
+                <div class="rating">
+                   <span></span><span></span><span></span><span></span><span></span>
+                </div>
                     <div><span>Nom: </span><div style="display:inline;" id="nameFicheFilm"> Captain America</div></div>
                     <div><span>Chemin: </span><div style="display:inline;" id="cheminFicheFilm"></div> </div>
                     <div><span>Acteurs:</span> </div>
                     <div><span>Duree:</span> 1h59</div>
-                    <div><span>Qualite:</span> 1080p</div>
                     <div><span>Synopsis:</span></div>
-                    <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis arcu vel mi accumsan sagittis. Vestibulum facilisis enim augue.</div>
+                    <div id="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis arcu vel mi accumsan sagittis. Vestibulum facilisis enim augue.</div>
                 </div>
 
-                <div class="rating">
-                   <span></span><span></span><span></span><span></span><span></span>
-                </div>
                 <div class="read"><i class="fa fa-play fa-3x"></i></div>
                 </div>
             </div>

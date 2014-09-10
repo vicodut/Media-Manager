@@ -6,8 +6,5 @@
     "height": 550,
     "toolbar": true,
     "frame": true
-  },
-  "devDependencies": {
-    "allocine-api": "^0.1.6"
   }
 }

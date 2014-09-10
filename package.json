@@ -5,5 +5,8 @@
   "devDependencies": {
     "allocine-api": "^0.1.6",
     "grunt": "^0.4.5"
+  },
+  "dependencies": {
+    "tmdb-3": "0.0.8"
   }
 }
