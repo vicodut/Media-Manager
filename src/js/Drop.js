@@ -1,6 +1,13 @@
+var Folder;
+var nmFilm;
+var compteur;
+var filmsList = [];
+
+
 function dragNdrop () {
 	var fs = require("fs");
 	var txt = document.querySelector("#dropTxt");
+	compteur = 0;
 
 	window.ondragover = window.ondrop = function(e) { e.preventDefault(); return false;}
 
@@ -21,7 +28,7 @@ function dragNdrop () {
 
 		e.preventDefault;
 		for (var i = 0; i < e.dataTransfer.files.length; ++i) {
-			var Folder =  e.dataTransfer.files[i].path;
+			Folder =  e.dataTransfer.files[i].path;
 			console.log(Folder);
 		};
 
@@ -46,12 +53,10 @@ function dragNdrop () {
 
 function save (Folder) {
     var fs = require('fs');
-
     var path = require('path');
+    var tpl = $('#contenu_onglet_film').html();
 
     var filmsList = [];
-
-    var tpl = $('#contenu_onglet_film').html();
 
     function getDirectories() {
         return fs.readdirSync(Folder).filter(function (file) {
@@ -60,14 +65,32 @@ function save (Folder) {
     }
 
     var dirs = getDirectories();
-
+    nbFilm = dirs.length;
     for(var i in dirs){
+    	findData(dirs[i], i);
+    	console.log("TOUR " + i + "  " + dirs[i]);
         filmsList[i] = {"title": dirs[i], "path" : Folder + "\\" + dirs[i]};
     }
 
     var filmsList_str = JSON.stringify(filmsList);
-    console.log(filmsList_str);
+    /*console.log(filmsList_str);*/
 
     fs.writeFileSync("Data\\library.json", filmsList_str, "UTF-8");
 
+}
+
+function list (data,Tour) {
+	fs = require("fs");
+
+	compteur++;
+	console.log(">TOUR " + Tour + "  " + data[0] + "+ Compteur " + compteur);
+
+	filmsList[Tour] = {"title": data[0], "path" : Folder + "\\" + data[0], "img" : data[1], "synopsis" : data[2]};
+	console.log(filmsList);
+	if (compteur == nbFilm) {
+		var filmsList_str = JSON.stringify(filmsList);
+		fs.writeFileSync("Data\\library2.json", filmsList_str, "UTF-8");
+		$('#tuiles').html('{{#films}}<article class="Tuile" onclick="javascript:ficheOpen(\'{{title}}\');"> <div id="hover"> <div id="Lire"><i class="fa fa-eye fa-2x"></i></div> <div class="rating"> <span></span><span></span><span></span><span></span><span></span> </div> </div> <img id="Pochette" src="css/guardian.jpg" /> <div id="titre"title="{{title}}">{{title}}</div> </article> {{/films}}');
+		Hello();
+	};
 }
