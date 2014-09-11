@@ -5,17 +5,19 @@ function findData (title, Tour) {
 
 	tmdb.search('movie', {query: title, language: 'fr'}, function (err, results) {
 	    //Informations on first ID
-	    /*console.log(results.results[0]);*/
+
 	    if (results.results[0] == undefined ) {
-	    	/*console.log('erreur: film indefini');*/
+
 	    	data[0] = title;
 	        data[1] = "css\\guardian.jpg";
 	        data[2] = "N.C.";
+	        list(data,Tour);
 
 	    } else {
+
 	    tmdb.infos('movie', results.results[0].id, {language: 'fr'}, function (err, results) {
 	        data[0] = title;
-	        data[1] = 'Data/Img/' + title + '.jpg';
+	        data[1] = results.poster_path;
 	        data[2] = results.overview;
 
 	        while (data == null) {
@@ -27,7 +29,7 @@ function findData (title, Tour) {
 			        throw err;
 			    }
 			    console.log(files);
-			    
+
 			});
 
 

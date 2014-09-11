@@ -14,7 +14,7 @@ function ficheOpen(title)
 {
     console.log(title);
     ficheFilm(title);
-    console.log(img);
+
 
 }
 function ficheClose()
@@ -41,30 +41,24 @@ function toggleMaximize () {
     }
 }
 
-
+var tpl;
 /*Fonction Hello s'ouvre au chargement de la page et affiche les tuiles*/
 function Hello() {
     console.log("Hello");
 
-    var tpl = $('#tuiles').html();
+
     var fs = require('fs');
-    var path = require('path');
+
     var filmsList = {};
 
     fs.exists("Data/library2.json", function (exists) {
         if (exists) {
             console.log("library.json found");
             fs.readFile("Data/library2.json", "utf-8", function (err, data) {
-                //console.log(data);
-                filmsList = JSON.parse(data);
-                var tab = [];
-                for(var x in filmsList){
-                    /*console.log(filmsList[x]);*/
-                    tab.push(filmsList[x]);
-                }
-                $('#tuiles').html(Mustache.render(tpl, {films : filmsList})).removeClass('hidden');
-                $('#loading').remove();
-            });
+            filmsList = JSON.parse(data);
+            $('#tuiles').html(Mustache.render($('#tuiles').html(), {films : filmsList})).removeClass('hidden');
+            $('#loading').remove();
+        });
         } else {
             console.log("library.json not found");
             document.getElementById('error').style.display = 'block';
@@ -81,7 +75,6 @@ function ficheFilm(title){
     infos = [];
 
     for(i in dataFilm) {
-        console.log('eee' + dataFilm[i].title);
         if (dataFilm[i].title == title) {
             infos[0] = dataFilm[i].title;
             infos[1] = dataFilm[i].path;

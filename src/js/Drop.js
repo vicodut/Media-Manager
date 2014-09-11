@@ -7,7 +7,7 @@ var filmsList = [];
 function dragNdrop () {
 	var fs = require("fs");
 	var txt = document.querySelector("#dropTxt");
-	compteur = 0;
+
 
 	window.ondragover = window.ondrop = function(e) { e.preventDefault(); return false;}
 
@@ -25,7 +25,7 @@ function dragNdrop () {
 		return false;
 	}
 	drop.ondrop = function (e) {
-
+		compteur = 0;
 		e.preventDefault;
 		for (var i = 0; i < e.dataTransfer.files.length; ++i) {
 			Folder =  e.dataTransfer.files[i].path;
@@ -39,8 +39,6 @@ function dragNdrop () {
 			document.getElementById('dropFolder').setAttribute("style","border-color:rgb(130, 220, 135);background-color:rgba(130, 220, 135, 0.2);");
 			save(Folder);
 			txt.innerHTML = "<br /><br /><br />Thanks New Folder is: " + Folder + " <br /> Mis à jour faite.";
-			$('#tuiles').html('{{#films}}<article class="Tuile" onclick="javascript:ficheOpen(\'{{title}}\');"> <div id="hover"> <div id="Lire"><i class="fa fa-eye fa-2x"></i></div> <div class="rating"> <span></span><span></span><span></span><span></span><span></span> </div> </div> <img id="Pochette" src="css/guardian.jpg" /> <div id="titre"title="{{title}}">{{title}}</div> </article> {{/films}}');
-			/*Hello();*/
 			document.getElementById('error').style.display = 'none';
 		} else {
 			document.getElementById('dropFolder').setAttribute("style","background-color:rgba(220, 130, 135,0.2);style","border-color:rgb(220, 130, 135);")
@@ -65,7 +63,7 @@ function save (Folder) {
     }
 
     var dirs = getDirectories();
-    nbFilm = dirs.length - 1;
+    nbFilm = dirs.length;
     for(var i in dirs){
     	findData(dirs[i], i);
     	console.log("TOUR " + i + "  " + dirs[i]);
@@ -73,7 +71,6 @@ function save (Folder) {
     }
 
     var filmsList_str = JSON.stringify(filmsList);
-    /*console.log(filmsList_str);*/
 
     fs.writeFileSync("Data\\library.json", filmsList_str, "UTF-8");
 
@@ -83,20 +80,13 @@ function list (data,Tour) {
 	fs = require("fs");
 
 	compteur++;
-	console.log(">TOUR " + Tour + "  " + data[0] + "+ Compteur " + compteur);
 
 	filmsList[Tour] = {"title": data[0], "path" : Folder + "\\" + data[0], "img" : data[1], "synopsis" : data[2]};
-	console.log(filmsList);
+	console.log(compteur + ' ' +nbFilm);
 	if (compteur == nbFilm) {
 		var filmsList_str = JSON.stringify(filmsList);
 		fs.writeFileSync("Data\\library2.json", filmsList_str, "UTF-8");
-		$('#tuiles').html('{{#films}}<article class="Tuile" onclick="javascript:ficheOpen(\'{{title}}\');"> <div id="hover"> <div id="Lire"><i class="fa fa-eye fa-2x"></i></div> <div class="rating"> <span></span><span></span><span></span><span></span><span></span> </div> </div> <img id="Pochette" src="css/guardian.jpg" /> <div id="titre"title="{{title}}">{{title}}</div> </article> {{/films}}');
-		console.log('Data/Img/' + data[0] + '.jpg');
-		fs.exists('Data/Img/' + data[0] + '.jpg', function (exists) {
-			console.log("EEEEEEEEEEEEEEEEEEEEE" + exists);
-		  if (exists) {
-		  	Hello();
-		  };
-		});
+		$('#tuiles').html('{{#films}} <article class="Tuile" onclick="javascript:ficheOpen("{{title}}");"> <div id="hover"> <div id="Lire"><i class="fa fa-eye fa-2x"></i></div> <div class="rating"> <span></span><span></span><span></span><span></span><span></span> </div> </div> <div id="Pochette"><img  src="{{img}}" /></div> <div id="titre"title="{{title}}">{{title}}</div> </article> {{/films}}');
+		Hello();
 	};
 }
