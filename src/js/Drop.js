@@ -40,7 +40,7 @@ function dragNdrop () {
 			save(Folder);
 			txt.innerHTML = "<br /><br /><br />Thanks New Folder is: " + Folder + " <br /> Mis à jour faite.";
 			$('#tuiles').html('{{#films}}<article class="Tuile" onclick="javascript:ficheOpen(\'{{title}}\');"> <div id="hover"> <div id="Lire"><i class="fa fa-eye fa-2x"></i></div> <div class="rating"> <span></span><span></span><span></span><span></span><span></span> </div> </div> <img id="Pochette" src="css/guardian.jpg" /> <div id="titre"title="{{title}}">{{title}}</div> </article> {{/films}}');
-			Hello();
+			/*Hello();*/
 			document.getElementById('error').style.display = 'none';
 		} else {
 			document.getElementById('dropFolder').setAttribute("style","background-color:rgba(220, 130, 135,0.2);style","border-color:rgb(220, 130, 135);")
@@ -65,7 +65,7 @@ function save (Folder) {
     }
 
     var dirs = getDirectories();
-    nbFilm = dirs.length;
+    nbFilm = dirs.length - 1;
     for(var i in dirs){
     	findData(dirs[i], i);
     	console.log("TOUR " + i + "  " + dirs[i]);
@@ -91,6 +91,12 @@ function list (data,Tour) {
 		var filmsList_str = JSON.stringify(filmsList);
 		fs.writeFileSync("Data\\library2.json", filmsList_str, "UTF-8");
 		$('#tuiles').html('{{#films}}<article class="Tuile" onclick="javascript:ficheOpen(\'{{title}}\');"> <div id="hover"> <div id="Lire"><i class="fa fa-eye fa-2x"></i></div> <div class="rating"> <span></span><span></span><span></span><span></span><span></span> </div> </div> <img id="Pochette" src="css/guardian.jpg" /> <div id="titre"title="{{title}}">{{title}}</div> </article> {{/films}}');
-		Hello();
+		console.log('Data/Img/' + data[0] + '.jpg');
+		fs.exists('Data/Img/' + data[0] + '.jpg', function (exists) {
+			console.log("EEEEEEEEEEEEEEEEEEEEE" + exists);
+		  if (exists) {
+		  	Hello();
+		  };
+		});
 	};
 }
