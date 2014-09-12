@@ -11,17 +11,20 @@ function findData (title, Tour) {
 	    	data[0] = title;
 	        data[1] = "css\\guardian.jpg";
 	        data[2] = "N.C.";
+	        data[4] = 'Data/Img/' +title + '.jpg';
 	        list(data,Tour);
 
 	    } else {
 
 	    tmdb.infos('movie', results.results[0].id, {language: 'fr'}, function (err, results) {
+
+	        while (data == null) {
+	        };
+	        console.log(data[0] );
 	        data[0] = title;
 	        data[1] = results.poster_path;
 	        data[2] = results.overview;
 
-	        while (data == null) {
-	        };
 	        var download = new Download().get({url : results.poster_path, name : title + '.jpg'}, 'Data/Img/');
 
 	        download.run(function (err, files) {
