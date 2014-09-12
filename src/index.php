@@ -69,7 +69,7 @@
                 </div>
                 
             <div class="FicheFilm" id="fiche">
-            
+
                 <i class="fa fa-times fa-2x" id="closeFiche" onclick="javascript:ficheClose();"></i>
                 <span id="img"><img id="Pochette" src="css/captamerica.jpg" /></span>
                 <div class="titre" id="titreFicheFilm"></div>

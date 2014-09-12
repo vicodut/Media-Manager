@@ -26,7 +26,7 @@ function dragNdrop () {
 	drop.ondrop = function (e) {
 		compteur = 0;
 		e.preventDefault;
-
+		remove ();
 		for (var i = 0; i < e.dataTransfer.files.length; ++i) {
 			Folder =  e.dataTransfer.files[i].path;
 			console.log(Folder);
@@ -79,7 +79,7 @@ function list (data,Tour) {
 	filmsList[Tour] = {"title": data[0], "path" : Folder + "\\" + data[0], "img" : data[1], "synopsis" : data[2]};
 
 	console.log(compteur + ' ' +nbFilm);
-	
+
 	if (compteur == nbFilm) {
 		var filmsList_str = JSON.stringify(filmsList);
 		fs.writeFileSync("Data\\library2.json", filmsList_str, "UTF-8");
@@ -87,3 +87,15 @@ function list (data,Tour) {
 		Hello();
 	};
 }
+
+function remove () {
+	var fs  = require('fs');  
+	var dir = 'Data/Img'; 
+
+	fs.readdirSync(dir).forEach(function(file,index){
+     	var curPath = dir + "/" + file;
+    	fs.unlinkSync(curPath);
+    });
+
+
+} 
