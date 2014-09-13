@@ -1,12 +1,13 @@
 var Folder;
 var nmFilm;
 var compteur;
+var compteurImg;
 var filmsList = [];
 var txt = document.querySelector("#dropTxt");
 
 function dragNdrop () {
 	var fs = require("fs");
-
+	compteurImg = 0;
 
 	window.ondragover = window.ondrop = function(e) { e.preventDefault(); return false;}
 
@@ -39,7 +40,7 @@ function dragNdrop () {
 			document.getElementById('dropFolder').setAttribute("style","border-color:rgb(130, 220, 135);background-color:rgba(130, 220, 135, 0.2);");
 			save(Folder);
 			document.getElementById('loadData').style.display = 'block';
-			txt.innerHTML = "<br /><br /><br />Thanks New Folder is: " + Folder + " <br /> Mis à jour en cours.";
+			txt.innerHTML = "<br /><br /><br />Thanks New Folder is: " + Folder + " <br /> Mis à jour en cours.<br /> Merci de patienter.";
 			document.getElementById('error').style.display = 'none';
 		} else {
 			document.getElementById('dropFolder').setAttribute("style","background-color:rgba(220, 130, 135,0.2);style","border-color:rgb(220, 130, 135);")

@@ -17,7 +17,7 @@ function findData (title, Tour) {
 	    } else {
 
 	    tmdb.infos('movie', results.results[0].id, {language: 'fr'}, function (err, results) {
-
+	    	compteurImg++;
 	        while (data == null) {
 	        };
 	        console.log(data[0] );
@@ -32,7 +32,8 @@ function findData (title, Tour) {
 			        throw err;
 			    }
 			    console.log(files);
-
+			    compteurImg--;
+			    console.log(compteurImg);
 			});
 
 
