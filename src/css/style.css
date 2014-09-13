@@ -471,5 +471,15 @@ p {
 	bottom: 0px;
 	padding-top: 20%;
 }
+#loadData {
+	left: 0px;
+	right: 0px;
+	text-align: center;
+	top: 25px;
+	bottom: 0px;
+	position: fixed;
+	z-index: 30;
+	background-color: rgba(2,2,2,0.4);
+}
 
 .filled{ color:rgb(52, 152, 219); }

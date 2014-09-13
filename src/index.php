@@ -11,7 +11,9 @@
         <script type="text/javascript" src="js/libs/jquery/dist/jquery.min.js"></script>
     </head>
 
-    <body onload="Hello();dragNdrop();">
+    <body onload="Hello();dragNdrop(); ">
+
+        
 
     	<div class="Tittle">
     		<p> Bibliotheque films / series. </p>
@@ -46,7 +48,7 @@
             </span>
         </div>
         <div class="Bandeau2"></div>
-
+        <div id="loadData" style="display: none;"></div>
 
         <div class="Contenu" id="Contenu">
         	
@@ -55,7 +57,7 @@
                 <div id="loading"> Chargement...</div>
                 <div id="tuiles" class="hidden">
                     {{#films}}
-                    <article class="Tuile" onclick="javascript:ficheOpen('{{title}}');">
+                    <article class="Tuile" onclick='javascript:ficheOpen("{{title}}");'>
                         <div id="hover">
                             <div id="Lire"><i class="fa fa-eye fa-2x"></i></div>
                             <div class="rating">
@@ -93,6 +95,7 @@
 
             <div class="contenu_onglet" id="contenu_onglet_serie">Contenu de l'onglet serie</div>
 
+            
             <div class="contenu_onglet" id="contenu_onglet_param">
                 <div id="dropFolder"><p id="dropTxt">
                 Drop un Dossier pour changer le dossier de bibliotheque ;)  </p>
@@ -106,5 +109,6 @@
 			change_onglet(anc_onglet);
 			//-->
 		</script>
+
     </body>      
 </html>

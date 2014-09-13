@@ -2,11 +2,11 @@ var Folder;
 var nmFilm;
 var compteur;
 var filmsList = [];
-
+var txt = document.querySelector("#dropTxt");
 
 function dragNdrop () {
 	var fs = require("fs");
-	var txt = document.querySelector("#dropTxt");
+
 
 	window.ondragover = window.ondrop = function(e) { e.preventDefault(); return false;}
 
@@ -38,7 +38,8 @@ function dragNdrop () {
 		if (isDir.isDirectory()) {
 			document.getElementById('dropFolder').setAttribute("style","border-color:rgb(130, 220, 135);background-color:rgba(130, 220, 135, 0.2);");
 			save(Folder);
-			txt.innerHTML = "<br /><br /><br />Thanks New Folder is: " + Folder + " <br /> Mis à jour faite.";
+			document.getElementById('loadData').style.display = 'block';
+			txt.innerHTML = "<br /><br /><br />Thanks New Folder is: " + Folder + " <br /> Mis à jour en cours.";
 			document.getElementById('error').style.display = 'none';
 		} else {
 			document.getElementById('dropFolder').setAttribute("style","background-color:rgba(220, 130, 135,0.2);style","border-color:rgb(220, 130, 135);")
@@ -85,6 +86,8 @@ function list (data,Tour) {
 		fs.writeFileSync("Data\\library2.json", filmsList_str, "UTF-8");
 		$('#tuiles').html('{{#films}} <article class="Tuile" onclick="javascript:ficheOpen("{{title}}");"> <div id="hover"> <div id="Lire"><i class="fa fa-eye fa-2x"></i></div> <div class="rating"> <span></span><span></span><span></span><span></span><span></span> </div> </div> <div id="Pochette"><img  src="{{img}}" /></div> <div id="titre"title="{{title}}">{{title}}</div> </article> {{/films}}');
 		Hello();
+		document.getElementById('loadData').style.display = 'none';
+		txt.innerHTML = "<br /><br /><br />Thanks New Folder is: " + Folder + " <br /> Mis à jour effectuée.";
 	};
 }
 
@@ -99,3 +102,8 @@ function remove () {
 
 
 } 
+
+function test () {
+	var text = new SpeechSynthesisUtterance("Hello, good Master");
+	speechSynthesis.speak(text);
+}
