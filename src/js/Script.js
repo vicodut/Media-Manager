@@ -90,5 +90,6 @@ function ficheFilm(title){
     document.getElementById("cheminFicheFilm").innerHTML = infos[1];
     $('#img').html('<img id="Pochette" src="'+ infos[2] +'" />');
     $('#desc').html(infos[3]);
+    $('#infoBulle').html(infos[3]);
 
 }

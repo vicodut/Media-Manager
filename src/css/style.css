@@ -318,6 +318,10 @@ p {
 	font-family: open sans;
 	margin-top: 15px;
 	font-weight: bold;
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	z-index: 2;
 }
 .FicheFilm #Pochette {
 	float: left;
@@ -327,6 +331,24 @@ p {
 #fiche {
 	display: none;
 }
+#infoBulle {
+	display: none;
+	transition: margin-top 0.5s ease;
+	background-color: rgba(20,20,20,0.9);
+	color: #AAA;
+	position: absolute;
+	z-index: 1337;
+	width: 50%;
+	border-radius: 0px 0px 20px 20px;
+	padding: 5px;
+	padding-top: 20px;
+	border: 1px solid #999;
+	margin-left: 25%;
+}
+.ficheFilm #desc:hover >  #infoBulle{
+	transition: margin-top 0.5s ease;
+	margin-top: 100px;
+}
 #closeFiche {
 	height: 15px;
 	width: 15px;
@@ -334,8 +356,9 @@ p {
 	position: absolute;
 	right: 0.5%;
 	margin: 25px;
-	margin-top: 22px;
+	margin-top: 10px;
 	color: #999;
+	z-index: 1337;
 }
 #closeFiche:hover {
 	color: rgb(230,120,100);
@@ -345,7 +368,7 @@ p {
 	background-color: rgba(10,10,10,0.7);
 	border: 1px solid rgba(60,60,60,0.7);
 	border-radius: 3px;
-	max-width: 50%;
+	width: 55%;
 	float: left;
 	color: #999;
 	font-family: open sans;
@@ -353,7 +376,6 @@ p {
 	margin-top: 50px;
 	padding: 10px;
 	margin-left: 20px;
-	position: relative;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
@@ -373,18 +395,23 @@ p {
 .FicheFilm .Info div{
 	overflow: hidden;
 }
+.FicheFilm .Info #contenuInfo{
+	float: left;
+	width: 100%;
+}
 .FicheFilm #desc {
 	white-space: pre-line;
 		text-overflow: ellipsis;
 	overflow: hidden;
-
-	height: 100%;
+	float: left;
+	width: 100%;
+	height: 40%;
 }
 
 .FicheFilm .read{
 	display: inline-block;
 	text-align: center;
-	width: 50%;
+	width: 55%;
 	float: left;
 	color: #999;
 	line-height: 30px;
@@ -393,6 +420,7 @@ p {
 }
 .FicheFilm .read .fa{
 	cursor: pointer;
+	margin-right: 40px;
 }
 .FicheFilm .read .fa:hover {
 	color: rgb(52, 152, 219);

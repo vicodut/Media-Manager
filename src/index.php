@@ -78,18 +78,19 @@
                 <div class="Info">
                     <div id="Info">- Info -</div>
 
-                <div class="rating">
-                   <span></span><span></span><span></span><span></span><span></span>
-                </div>
-                    <div><span>Nom: </span><div style="display:inline;" id="nameFicheFilm"> Captain America</div></div>
-                    <div><span>Chemin: </span><div style="display:inline;" id="cheminFicheFilm"></div> </div>
-                    <div><span>Acteurs:</span> </div>
-                    <div><span>Duree:</span> 1h59</div>
-                    <div><span>Synopsis:</span></div>
+                    <div class="rating">
+                       <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                    <div id="contenuInfo"><span>Nom: </span><div style="display:inline;" id="nameFicheFilm"> Captain America</div></div>
+                    <div id="contenuInfo"><span>Chemin: </span><div style="display:inline;" id="cheminFicheFilm"></div> </div>
+                    <div id="contenuInfo"><span>Acteurs:</span> </div>
+                    <div id="contenuInfo"><span>Duree:</span> 1h59</div>
+                    <div id="contenuInfo"><span>Synopsis:</span></div>
                     <div id="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis arcu vel mi accumsan sagittis. Vestibulum facilisis enim augue.</div>
+                    
                 </div>
-
-                <div class="read"><i class="fa fa-play fa-3x"></i></div>
+                <div id="infoBulle"> </div>
+                <div class="read"><i class="fa fa-plus fa-3x"></i><i class="fa fa-play fa-3x"></i></div>
                 </div>
             </div>
 
