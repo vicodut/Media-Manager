@@ -59,7 +59,7 @@
                     {{#films}}
                     <article class="Tuile" onclick='javascript:ficheOpen("{{title}}");'>
                         <div id="hover">
-                            <div id="Lire"><i class="fa fa-eye fa-2x"></i></div>
+                            <div id="Lire"><i class="fa fa-eye fa-4x"></i></div>
                             <div class="rating">
                                 <span></span><span></span><span></span><span></span><span></span>
                             </div>
@@ -87,10 +87,10 @@
                     <div id="contenuInfo"><span>Duree:</span> 1h59</div>
                     <div id="contenuInfo"><span>Synopsis:</span></div>
                     <div id="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis arcu vel mi accumsan sagittis. Vestibulum facilisis enim augue.</div>
-                    
+                    <div id="infoBulle"> </div>
                 </div>
-                <div id="infoBulle"> </div>
-                <div class="read"><i class="fa fa-plus fa-3x"></i><i class="fa fa-play fa-3x"></i></div>
+                
+                <div class="read"><i id="Plus" class="fa fa-plus fa-3x"></i><i class="fa fa-play fa-3x"></i></div>
                 </div>
             </div>
 
