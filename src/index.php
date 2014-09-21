@@ -31,11 +31,16 @@
             </div>
             <div class="OptionFilm">
                 <ul>
-                    <li><i class="fa fa-tag"></i> Action</li>
+                <div id="Cat" class="hidden">
+                    {{#Categories}}
+                    <li><i class="fa fa-tag"></i>{{cat}}</li>
+                    {{/Categories}}
+                </div>
+                    <!-- <li><i class="fa fa-tag"></i> Action</li>
                     <li><i class="fa fa-tag"></i> Comedie</li>
                     <li><i class="fa fa-tag"></i> Guerre</li>
                     <li><i class="fa fa-tag"></i> Humour</li>
-                    <li>...</li>
+                    <li>...</li> -->
                 </ul>
             </div>
         </div>
@@ -87,7 +92,7 @@
                     <div id="contenuInfo"><span>Duree:</span> 1h59</div>
                     <div id="contenuInfo"><span>Synopsis:</span></div>
                     <div id="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis arcu vel mi accumsan sagittis. Vestibulum facilisis enim augue.</div>
-                    <div id="infoBulle"> </div>
+                    <div id="infoBulle"> N.C. </div>
                 </div>
                 
                 <div class="read"><i id="Plus" class="fa fa-plus fa-3x"></i><i class="fa fa-play fa-3x"></i></div>

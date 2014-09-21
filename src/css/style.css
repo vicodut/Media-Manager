@@ -220,11 +220,15 @@ p {
 .BandeauGauche .OptionFilm ul {
 	list-style: none;
 	color: #BBB;
-	font-size: 14px;
+	font-size: 13px;
 	padding-left: 0px;
 }
 .BandeauGauche .OptionFilm li {
 	cursor: pointer;
+	margin-bottom: 3px;
+}
+.BandeauGauche .OptionFilm i {
+	margin-right: 3px;
 }
 .BandeauGauche select{
 	width: 100%;

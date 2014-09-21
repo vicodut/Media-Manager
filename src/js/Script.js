@@ -50,7 +50,7 @@ function Hello() {
     var fs = require('fs');
 
     var filmsList = {};
-
+    var catList = {};
     fs.exists("Data/library2.json", function (exists) {
         if (exists) {
             console.log("library.json found");
@@ -64,6 +64,16 @@ function Hello() {
             document.getElementById('error').style.display = 'block';
             $('#loading').remove();
             document.getElementById("error").innerHTML = "Veuillez donner un dossier librairie dans les paramètres";
+        };
+    });
+
+     fs.exists("Data/category.json", function (exists) {
+        if (exists) {
+            console.log("category.json found");
+            fs.readFile("Data/category.json", "utf-8", function (err, data) {
+            catList = JSON.parse(data);
+            $('#Cat').html(Mustache.render($('#Cat').html(), {Categories : catList})).removeClass('hidden');
+        });
         };
     });
 }
