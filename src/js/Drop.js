@@ -3,6 +3,7 @@ var nmFilm;
 var compteur;
 var compteurImg;
 var filmsList = [];
+var categorieList = [];
 var txt = document.querySelector("#dropTxt");
 
 function dragNdrop () {
@@ -78,13 +79,22 @@ function list (data,Tour) {
 
 	compteur++;
 
-	filmsList[Tour] = {"title": data[0], "path" : Folder + "\\" + data[0], "img" : data[1], "synopsis" : data[2]};
+	filmsList[Tour] = {"title": data[0], "path" : Folder + "\\" + data[0], "img" : data[1], "synopsis" : data[2], "note" : data[3], "genres" : data[4]};
 
-	console.log(compteur + ' ' +nbFilm);
-
+	/*console.log(compteur + ' ' +nbFilm);*/
+	catList = categories(data[4], Tour);
+	var genre = [];
 	if (compteur == nbFilm) {
 		var filmsList_str = JSON.stringify(filmsList);
 		fs.writeFileSync("Data\\library2.json", filmsList_str, "UTF-8");
+
+		for (var i = catList.length - 1; i >= 0; i--) {
+			if(catList[i] != '') {
+			genre[i] = {'cat' : catList[i]};
+			}
+		};
+		var catList_str = JSON.stringify(genre);
+		fs.writeFileSync("Data\\category.json", catList_str, "UTF-8");
 		$('#tuiles').html('{{#films}} <article class="Tuile" onclick="javascript:ficheOpen("{{title}}");"> <div id="hover"> <div id="Lire"><i class="fa fa-eye fa-2x"></i></div> <div class="rating"> <span></span><span></span><span></span><span></span><span></span> </div> </div> <div id="Pochette"><img  src="{{img}}" /></div> <div id="titre"title="{{title}}">{{title}}</div> </article> {{/films}}');
 		Hello();
 		document.getElementById('loadData').style.display = 'none';
@@ -104,7 +114,12 @@ function remove () {
 
 } 
 
-function test () {
-	var text = new SpeechSynthesisUtterance("Hello, good Master");
-	speechSynthesis.speak(text);
+function categories (cat, Tour) {
+	var present;
+	var tab = [];
+	for (var i = cat.length - 1; i >= 0; i--) {
+		console.log(cat[i].name);
+	};
+
+	return categorieList;
 }
