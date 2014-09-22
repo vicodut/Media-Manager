@@ -44,4 +44,5 @@ node_modules
 src/js/libs
 src/Data/library.json
 src/Data/library2.json
+src/Data/category.json
 src/Data/Img
