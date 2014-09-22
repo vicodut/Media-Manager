@@ -227,6 +227,9 @@ p {
 	cursor: pointer;
 	margin-bottom: 3px;
 }
+.BandeauGauche .OptionFilm li:hover {
+	color: rgb(72, 172, 219);
+}
 .BandeauGauche .OptionFilm i {
 	margin-right: 3px;
 }
@@ -446,7 +449,7 @@ p {
 }
 .FicheFilm .rating span {
 	border: none;
-	}
+}
 .FicheFilm .rating > span:before {
   display: inline-block;
   content: "\f006";
@@ -471,12 +474,19 @@ p {
   direction: rtl;
   margin-top: 6px;
 }
+.Tuile .rating span {
+	display: inline-block;
+}
 .Tuile .rating > span:before {
   content: "\f005";
    cursor: pointer;
    color: rgb(52, 152, 219);
    margin-right: 5px;
    margin-left: 5px;
+}
+.select:before, .select ~ span:before {
+	color: gold;
+	content: "\f006";
 }
 .contenu_onglet {
 	height: 100%;

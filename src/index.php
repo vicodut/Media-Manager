@@ -84,7 +84,7 @@
                     <div id="Info">- Info -</div>
 
                     <div class="rating">
-                       <span></span><span></span><span></span><span></span><span></span>
+                       <span style="display: none;" id="0"></span><span id="5"></span><span id="4"></span><span id="3"></span><span id="2"></span><span id="1"></span>
                     </div>
                     <div id="contenuInfo"><span>Nom: </span><div style="display:inline;" id="nameFicheFilm"> Captain America</div></div>
                     <div id="contenuInfo"><span>Chemin: </span><div style="display:inline;" id="cheminFicheFilm"></div> </div>
@@ -95,7 +95,7 @@
                     <div id="infoBulle"> N.C. </div>
                 </div>
                 
-                <div class="read"><i id="Plus" class="fa fa-plus fa-3x"></i><i class="fa fa-play fa-3x"></i></div>
+                <div class="read"><i id="Plus" class="fa fa-wrench fa-3x"></i><i class="fa fa-play fa-3x"></i></div>
                 </div>
             </div>
 

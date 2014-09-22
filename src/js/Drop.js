@@ -97,7 +97,7 @@ function list (data,Tour) {
 		};
 		var catList_str = JSON.stringify(genre);
 		fs.writeFileSync("Data\\category.json", catList_str, "UTF-8");
-		$('#tuiles').html('{{#films}} <article class="Tuile" onclick="javascript:ficheOpen("{{title}}");"> <div id="hover"> <div id="Lire"><i class="fa fa-eye fa-2x"></i></div> <div class="rating"> <span></span><span></span><span></span><span></span><span></span> </div> </div> <div id="Pochette"><img  src="{{img}}" /></div> <div id="titre"title="{{title}}">{{title}}</div> </article> {{/films}}');
+		$('#tuiles').html('{{#films}} <article class="Tuile" onclick="javascript:ficheOpen("{{title}}");"> <div id="hover"> <div id="Lire"><i class="fa fa-eye fa-4x"></i></div> <div class="rating"> <span></span><span></span><span></span><span></span><span></span> </div> </div> <div id="Pochette"><img  src="{{img}}" /></div> <div id="titre"title="{{title}}">{{title}}</div> </article> {{/films}}');
 		$('#Cat').html('{{#Categories}}<li><i class="fa fa-tag"></i>{{cat}}</li>{{/Categories}}');
 		Hello();
 		document.getElementById('loadData').style.display = 'none';

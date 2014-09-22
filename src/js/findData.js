@@ -26,7 +26,7 @@ function findData (title, Tour) {
 	        data[0] = title;
 	        data[1] = results.poster_path;
 	        data[2] = results.overview;
-	        data[3] = results.vote_average;
+	        data[3] = Math.round(results.vote_average / 2);
 	        data[4] = results.genres;
 
 	        var download = new Download().get({url : results.poster_path, name : title + '.jpg'}, 'Data/Img/');

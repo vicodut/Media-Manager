@@ -20,6 +20,7 @@ function ficheOpen(title)
 function ficheClose()
 {
     document.getElementById('fiche').style.display = 'none';
+    document.getElementById(infos[4]).setAttribute("class", "");
     document.getElementById('tuiles').setAttribute("style","-webkit-filter:blur(" + 0 + "px);")
 }
 
@@ -90,14 +91,16 @@ function ficheFilm(title){
             infos[1] = dataFilm[i].path;
             infos[2] = dataFilm[i].img;
             infos[3] = dataFilm[i].synopsis;
+            infos[4] = dataFilm[i].note;
         };
     };
-
     document.getElementById('fiche').style.display = 'block';
     document.getElementById('tuiles').setAttribute("style","-webkit-filter:blur(" + 2 + "px);");
     document.getElementById("titreFicheFilm").innerHTML = title;
     document.getElementById("nameFicheFilm").innerHTML = infos[0];
     document.getElementById("cheminFicheFilm").innerHTML = infos[1];
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + infos[4] + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
+    document.getElementById(infos[4]).setAttribute("class", "select");
     $('#img').html('<img id="Pochette" src="'+ infos[2] +'" />');
     $('#desc').html(infos[3]);
     $('#infoBulle').html(infos[3]);
