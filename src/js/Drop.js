@@ -4,6 +4,7 @@ var compteur;
 var compteurImg;
 var filmsList = [];
 var categorieList = [];
+var a;
 var txt = document.querySelector("#dropTxt");
 
 function dragNdrop () {
@@ -36,6 +37,7 @@ function dragNdrop () {
 
 		var isDir = fs.statSync(Folder);
 		console.log(isDir.isDirectory());
+		a = 0;
 
 		if (isDir.isDirectory()) {
 			document.getElementById('dropFolder').setAttribute("style","border-color:rgb(130, 220, 135);background-color:rgba(130, 220, 135, 0.2);");
@@ -96,6 +98,7 @@ function list (data,Tour) {
 		var catList_str = JSON.stringify(genre);
 		fs.writeFileSync("Data\\category.json", catList_str, "UTF-8");
 		$('#tuiles').html('{{#films}} <article class="Tuile" onclick="javascript:ficheOpen("{{title}}");"> <div id="hover"> <div id="Lire"><i class="fa fa-eye fa-2x"></i></div> <div class="rating"> <span></span><span></span><span></span><span></span><span></span> </div> </div> <div id="Pochette"><img  src="{{img}}" /></div> <div id="titre"title="{{title}}">{{title}}</div> </article> {{/films}}');
+		$('#Cat').html('{{#Categories}}<li><i class="fa fa-tag"></i>{{cat}}</li>{{/Categories}}');
 		Hello();
 		document.getElementById('loadData').style.display = 'none';
 		txt.innerHTML = "<br /><br /><br />Thanks New Folder is: " + Folder + " <br /> Mis à jour effectuée.";
@@ -119,6 +122,21 @@ function categories (cat, Tour) {
 	var tab = [];
 	for (var i = cat.length - 1; i >= 0; i--) {
 		console.log(cat[i].name);
+		var result = 0;
+		if (cat[i].name != undefined ) {
+			for (var y = categorieList.length - 1; y >= 0; y--) {
+				if (categorieList[y] == cat[i].name) {
+					result++;
+				};
+			};
+			if (result == 0) {
+				categorieList[a] = cat[i].name;
+				a++;
+			};
+			
+		}
+		console.log(categorieList);
+		
 	};
 
 	return categorieList;
