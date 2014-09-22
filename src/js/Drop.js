@@ -139,5 +139,5 @@ function categories (cat, Tour) {
 		
 	};
 
-	return categorieList;
+	return categorieList.sort();
 }
