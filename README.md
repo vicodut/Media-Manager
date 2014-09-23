@@ -1,7 +1,7 @@
 #Media-Manager
 
 ###Require :
-You need to have installed in your computeur: npm and bower (installed in global).
+You need to have installed in your computeur: node npm and bower (installed in global).
 
 ###Install :
 
