@@ -9,6 +9,7 @@
         <script type="text/javascript" src="js/findData.js"></script>
         <script type="text/javascript" src="js/libs/mustache/mustache.js"></script>
         <script type="text/javascript" src="js/libs/jquery/dist/jquery.min.js"></script>
+        
     </head>
 
     <body onload="Hello();dragNdrop(); ">
@@ -26,12 +27,13 @@
 
         <div class="BandeauGauche">
             <div class="Recherche2">
-                <input id="recherche2" type="text" results="5" placeholder="Rechercher" />
+                <input id="menu-search-input" type="text" placeholder="Rechercher" />
                 <div id="br"><i class="fa fa-search"></i></div>
             </div>
             <div class="OptionFilm">
                 <ul>
                 <div id="Cat" class="hidden">
+                    <li><i class="fa fa-check"></i>ALL</li>
                     {{#Categories}}
                     <li><i class="fa fa-tag"></i>{{cat}}</li>
                     {{/Categories}}
@@ -62,7 +64,7 @@
                 <div id="loading"> Chargement...</div>
                 <div id="tuiles" class="hidden">
                     {{#films}}
-                    <article class="Tuile" onclick='javascript:ficheOpen("{{title}}");'>
+                    <article class="Tuile"onclick='javascript:ficheOpen("{{title}}");'>
                         <div id="hover">
                             <div id="Lire"><i class="fa fa-eye fa-4x"></i></div>
                             <div class="rating">
@@ -70,7 +72,7 @@
                             </div>
                         </div>
                         <div id="Pochette"><img  src="{{img}}" /></div>
-                        <div id="titre"title="{{title}}">{{title}}</div>
+                        <div class="title" id="titre"title="{{title}}">{{title}}</div>
                     </article>
                     {{/films}}
                 </div>
@@ -115,6 +117,7 @@
 			change_onglet(anc_onglet);
 			//-->
 		</script>
+        <script type="text/javascript" src="js/search.js"></script>
 
     </body>      
 </html>

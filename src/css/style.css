@@ -191,7 +191,7 @@ p {
 	padding-left: 5px;
 	cursor: pointer;
 }
-.BandeauGauche #recherche2{
+.BandeauGauche #menu-search-input{
 	border: 0px;
 	margin-top: 5px;
 	width: 66%;
@@ -222,6 +222,9 @@ p {
 	color: #BBB;
 	font-size: 13px;
 	padding-left: 0px;
+}
+.BandeauGauche .OptionFilm li:first-Child {
+	color: rgba(140,230,190,0.7);
 }
 .BandeauGauche .OptionFilm li {
 	cursor: pointer;
@@ -462,7 +465,7 @@ p {
 .FicheFilm .rating > span:hover ~ span:before {
    content: "\f005";
    cursor: pointer;
-   color: gold;
+   color: rgb(52, 152, 219);
 }
 .Tuile .rating {
   unicode-bidi: bidi-override;

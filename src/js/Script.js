@@ -43,6 +43,7 @@ function toggleMaximize () {
 }
 
 var tpl;
+
 /*Fonction Hello s'ouvre au chargement de la page et affiche les tuiles*/
 function Hello() {
     console.log("Hello");
