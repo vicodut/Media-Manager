@@ -11,10 +11,11 @@ $('#menu-search-input').keyup(function(event){
 		var title = $(v).children('#titre').html();
 		if(title.match(new RegExp(regexp, 'i'))){
 			console.log(title);
-			$(this).parent().fadeIn();
+			$(this).fadeIn();
 		}
 		else{
-			$(this).parent().fadeOut();
+			console.log("Disp " + title);
+			$(this).fadeOut();
 		}
 	});
 });
