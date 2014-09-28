@@ -33,9 +33,9 @@
             <div class="OptionFilm">
                 <ul>
                 <div id="Cat" class="hidden">
-                    <li><i class="fa fa-check"></i>ALL</li>
+                    <li onclick="displayTags('all')" class="tag" id="all"><i class="fa fa-tags"></i>ALL</li>
                     {{#Categories}}
-                    <li><i class="fa fa-tag"></i>{{cat}}</li>
+                    <li onclick="displayTags('{{cat}}')" class="tag" id="{{cat}}"><i class="fa fa-tag"></i>{{cat}}</li>
                     {{/Categories}}
                 </div>
                     <!-- <li><i class="fa fa-tag"></i> Action</li>
@@ -73,6 +73,7 @@
                         </div>
                         <div id="Pochette"><img  src="{{img}}" /></div>
                         <div class="title" id="titre"title="{{title}}">{{title}}</div>
+                        <div class="categories" style="display: none;"><i id="cat">{{#genres}}{{name}} {{/genres}}</i></div>
                     </article>
                     {{/films}}
                 </div>
@@ -86,7 +87,7 @@
                     <div id="Info">- Info -</div>
 
                     <div class="rating">
-                       <span style="display: none;" id="0"></span><span id="5"></span><span id="4"></span><span id="3"></span><span id="2"></span><span id="1"></span>
+                       <span style="display: none;" id='N.C.'></span><span style="display: none;" id="0"></span><span id="5"></span><span id="4"></span><span id="3"></span><span id="2"></span><span id="1"></span>
                     </div>
                     <div id="contenuInfo"><span>Nom: </span><div style="display:inline;" id="nameFicheFilm"> Captain America</div></div>
                     <div id="contenuInfo"><span>Chemin: </span><div style="display:inline;" id="cheminFicheFilm"></div> </div>
@@ -115,6 +116,7 @@
 			//<!--
 			var anc_onglet = 'film';
 			change_onglet(anc_onglet);
+            var anc_tag = 'all'
 			//-->
 		</script>
         <script type="text/javascript" src="js/search.js"></script>

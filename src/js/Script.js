@@ -107,3 +107,34 @@ function ficheFilm(title){
     $('#infoBulle').html(infos[3]);
 
 }
+
+function displayTags(tag) {
+    console.log('tag: ' + tag);
+    document.getElementById(anc_tag).setAttribute("style","color: #CCC;");
+    document.getElementById(tag).setAttribute("style","color:rgba(140,230,190,0.7);");
+    anc_tag = tag;
+
+    if (tag == 'all') {
+        var val = '';
+    } else {
+        var val = tag;
+    };
+
+    console.log(val);
+    var regexp = '\\b(.*)';
+    for(var i in val){
+        regexp += '('+val[i]+')(.*)';
+    }
+    regexp += '\\b';
+    $.each($('.categories'), function(i, v){
+        var title = $(v).children('#cat').html();
+        if(title.match(new RegExp(regexp, 'i'))){
+            console.log(title);
+            $(this).parent().fadeIn();
+        }
+        else{
+            console.log("Disp " + title);
+            $(this).parent().fadeOut();
+        }
+    });
+}
