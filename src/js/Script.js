@@ -100,12 +100,11 @@ function ficheFilm(title){
     document.getElementById("titreFicheFilm").innerHTML = title;
     document.getElementById("nameFicheFilm").innerHTML = infos[0];
     document.getElementById("cheminFicheFilm").innerHTML = infos[1];
-    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>" + infos[4] + "<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<")
     document.getElementById(infos[4]).setAttribute("class", "select");
     $('#img').html('<img id="Pochette" src="'+ infos[2] +'" />');
     $('#desc').html(infos[3]);
     $('#infoBulle').html(infos[3]);
-
+    document.getElementById("play").onclick = function() { play(infos); };
 }
 
 function displayTags(tag) {

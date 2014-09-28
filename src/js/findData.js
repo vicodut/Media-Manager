@@ -10,7 +10,7 @@ function findData (title, Tour) {
 
 	    } else {
 
-		    if (results.results[0] == undefined ) {
+		    if (results.results[0] == undefined || results == undefined) {
 
 		    	data[0] = title;
 		        data[1] = "Data/movie-placeholder.jpg";
