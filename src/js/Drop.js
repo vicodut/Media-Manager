@@ -71,7 +71,13 @@ function save (Folder) {
     nbFilm = dirs.length;
 
     for(var i in dirs){
-    	findData(dirs[i], i);
+    	serie = isSerie(dirs[i]);
+    	
+    	if (serie == "true") {
+    		findDataSerie(dirs[i], i);
+    	}else {
+    		findData(dirs[i], i);
+    	};
     	console.log("TOUR " + i + "  " + dirs[i]);
     }
 }
@@ -135,9 +141,20 @@ function categories (cat, Tour) {
 			};
 			
 		}
-		console.log(categorieList);
+		/*console.log(categorieList);*/
 		
 	};
 
 	return categorieList.sort();
+}
+
+function isSerie(nomDossier) {
+	var nomSplit = nomDossier.split(" ");
+
+	if (nomSplit[0] == "Serie") {
+		return "true";
+	} else 
+	{
+		return "false";
+	};
 }
