@@ -433,6 +433,9 @@ p {
 	margin-top: 30px;
 	padding: 10px;
 }
+.FicheFilm .read #play:active{
+	color: rgba(140,230,190,0.7);
+}
 .FicheFilm .read .fa{
 	cursor: pointer;
 	margin-right: 40px;
