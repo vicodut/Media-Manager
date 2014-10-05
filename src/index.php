@@ -7,6 +7,7 @@
         <link rel="stylesheet" type="text/css" href="js/libs/fontawesome/css/font-awesome.min.css">
     	<script type="text/javascript" src="js/Script.js"></script>
         <script type="text/javascript" src="js/findData.js"></script>
+        <script type="text/javascript" src="js/play.js"></script>
         <script type="text/javascript" src="js/libs/mustache/mustache.js"></script>
         <script type="text/javascript" src="js/libs/jquery/dist/jquery.min.js"></script>
         
@@ -25,7 +26,7 @@
             </span>
     	</div>
 
-        <div class="BandeauGauche">
+        <div id="BandeauGauche" class="BandeauGauche">
             <div class="Recherche2">
                 <input id="menu-search-input" type="text" placeholder="Rechercher" />
                 <div id="br"><i class="fa fa-search"></i></div>
@@ -62,7 +63,7 @@
         	<div class="contenu_onglet" id="contenu_onglet_film">
             <span id="error" style="display: none;"></span>
                 <div id="loading"> Chargement...</div>
-                <div id="tuiles" class="hidden">
+                <div id="tuiles" class="hidden tuiles">
                     {{#films}}
                     <article class="Tuile"onclick='javascript:ficheOpen("{{title}}");'>
                         <div id="hover">
@@ -98,14 +99,29 @@
                     <div id="infoBulle"> N.C. </div>
                 </div>
                 
-                <div class="read"><i id="Plus" class="fa fa-wrench fa-3x"></i><i class="fa fa-play fa-3x"></i></div>
+                <div class="read"><i id="Plus" class="fa fa-wrench fa-3x"></i><i class="fa fa-play fa-3x" id="play"></i></div>
                 </div>
             </div>
 
-            <div class="contenu_onglet" id="contenu_onglet_serie">Contenu de l'onglet serie</div>
+            <div class="contenu_onglet" id="contenu_onglet_serie">Contenu de l'onglet serie
+
+            <div class="test">
+                <article id="1"></article>
+                <article id="2"></article>
+                <article id="3"></article>
+                <article id="4"></article>
+            </div>
+            </div>
 
             
             <div class="contenu_onglet" id="contenu_onglet_param">
+                <div id="Tri">
+                    <div class="buttonSwitch">  
+                        <span id="a" onclick="javascript:active('a');">Nom</span>
+                        <span id="b" onclick="javascript:active('b');">Classement Perso</span>
+                        <span id="c" onclick="javascript:active('c');">Classement tmdb</span>
+                    </div>
+                </div>
                 <div id="dropFolder"><p id="dropTxt">
                 Drop un Dossier pour changer le dossier de bibliotheque ;)  </p>
                 </div>
@@ -117,6 +133,7 @@
 			var anc_onglet = 'film';
 			change_onglet(anc_onglet);
             var anc_tag = 'all'
+            var anc_active = "a";
 			//-->
 		</script>
         <script type="text/javascript" src="js/search.js"></script>

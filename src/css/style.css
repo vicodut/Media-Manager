@@ -1,6 +1,6 @@
 html, body{
 	color: #555;
-	background-color: rgb(226, 230, 231);
+	background-color: rgb(231, 230, 231);
 	margin: 0px auto;
 }
 p {
@@ -15,11 +15,7 @@ p {
 	height: 25px;
 	line-height: 25px;
 	position: fixed;
-	z-index: 10;
-}
-.drag {
-	background-color: green;
-	height: 100%;
+	z-index: 2000;
 }
 .Tittle p {
 	margin-left: 25px;
@@ -109,7 +105,7 @@ p {
     background-color: rgba(52, 152, 219,0.8); 
 }
 .Bandeau {
-	margin-left: 40px;
+	
 	padding-top: 25px;
 	text-align: center;
 	font-family: open sans;
@@ -120,7 +116,7 @@ p {
 	z-index: 9;
 }
 .Bandeau2 {
-	margin-left: 40px;
+
 	margin-top: 50px;
 	height: 30px;
 	text-align: center;
@@ -245,22 +241,28 @@ p {
 #contenu_onglet_film {
 	text-align: justify;
 }
+.tuiles {
+	display: flex;
+	justify-content: space-around;
+   flex-flow: row wrap;
+   padding: 20px;
+}
 .Tuile{
-	margin-top: 19px;
-	margin-right: 10px;
-	margin-left: 10px;
 	margin-bottom: 10px;
+	margin-right: 10px;
 	border-radius: 3px;
-	width: 163px;
+	margin-left: 10px;
+	margin-top: 19px;
 	height: 244px;
+	width: 163px;
 	padding: 0px;
-	background-color: rgb(247,247,247);
-	cursor: pointer;
-	float: left;
-	display: inline-block;
+	background-color: rgb(250,250,250);
+	text-overflow: ellipsis;
+	display: inline;
 	position: relative;
 	overflow: hidden;
-	text-overflow: ellipsis;
+	cursor: pointer;
+	float: left;
 }
 .Tuile:hover {
 	overflow: hidder;
@@ -322,6 +324,7 @@ p {
 	left: 0px;
 	background-color: rgba(10,10,10,0.8);
 	-webkit-filter: blur(0px);
+	overflow: auto;
 }
 .FicheFilm .titre {
 	color: #DDD;
@@ -336,6 +339,7 @@ p {
 .FicheFilm #Pochette {
 	float: left;
 	height: 80%;
+	width: 32%;
 	margin: 50px 0px 0px 50px;
 }
 #fiche {
@@ -536,3 +540,50 @@ p {
 }
 
 .filled{ color:rgb(52, 152, 219); }
+
+.buttonSwitch {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+.buttonSwitch span {
+	display: inline-block;
+    background-color: rgba(240,240,240,0.8);
+    padding: 8px;
+    border-top: 1px solid rgba(120,120,120,0.7);
+    border-bottom: 1px solid rgba(200,200,200,0.9);
+    border-right: 1px solid rgba(200,200,200,0.9);
+    margin: -2px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+.buttonSwitch span:hover {
+    background-color: rgba(220,220,220,0.5);
+}
+.buttonSwitch span:first-child {
+    border-radius: 4px 0px 0px 4px;
+    border-left: 1px solid rgba(120,120,120,0.7);
+}
+.buttonSwitch span:last-child {
+    border-radius: 0px 4px 4px 0px;
+}
+.buttonSwitch .active {
+    background-color: rgba(220,220,220,0.9);
+}
+#Tri {
+	margin-top: 10px;
+	text-align: center;
+}
+
+.test {
+	width: 500px;
+	background-color: red;
+	display: flex;
+	justify-content: space-around;
+   flex-flow: row wrap;
+}
+.test article{
+	background-color: green;
+	height: 30px;
+	width: 30px;
+}

@@ -6,6 +6,13 @@ function change_onglet(name)
 	document.getElementById('contenu_onglet_'+anc_onglet).style.display = 'none';
 	document.getElementById('contenu_onglet_'+name).style.display = 'block';
 	anc_onglet = name;
+    if (name == "param") {
+        document.getElementById('BandeauGauche').setAttribute("style", " transition: margin-left 1.0s ease;margin-left:-140px;");
+        document.getElementById('Contenu').setAttribute("style", "margin-left:0px;");
+    } else {
+        document.getElementById('Contenu').setAttribute("style", "transition: margin-left 0.8s ease;margin-left:140px;");
+        document.getElementById('BandeauGauche').setAttribute("style", "transition: margin-left 1.0s ease;margin-left:0px;");
+    };
 }
 var img;
 
@@ -136,4 +143,9 @@ function displayTags(tag) {
             $(this).parent().fadeOut();
         }
     });
+}
+
+function active(elem) {
+    $(".boutton").removeClass('active');
+    document.getElementById(elem).className = 'boutton active';
 }
