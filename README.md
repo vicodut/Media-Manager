@@ -1,7 +1,8 @@
 #Media-Manager
 
 ###Require :
-You need to have installed in your computeur: node npm and bower (installed in global).
+You need to have installed in your computeur: ```node npm``` and ```bower``` (installed in global).
+
 You had to have folders and files in this hierarchie:
 ```
 -"{Video Folder}"
