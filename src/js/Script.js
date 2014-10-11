@@ -1,6 +1,7 @@
 /*Fonction de changement d'onglets : Films / Series / Paramètres*/
 function change_onglet(name)
 {
+    displayTags('all');
 	document.getElementById(anc_onglet).className = 'onglet_0 liens';
 	document.getElementById(name).className = 'onglet_1 liens';
 	document.getElementById('contenu_onglet_'+anc_onglet).style.display = 'none';
@@ -30,6 +31,12 @@ function ficheClose()
     document.getElementById(infos[4]).setAttribute("class", "");
     document.getElementById('tuiles').setAttribute("style","-webkit-filter:blur(" + 0 + "px);")
 }
+function ficheCloseSerie()
+{
+    document.getElementById('ficheSerie').style.display = 'none';
+    document.getElementById(infos[4]).setAttribute("class", "");
+    document.getElementById('tuilesSeries').setAttribute("style","-webkit-filter:blur(" + 0 + "px);")
+}
 
 /*Determine l'état de la fenètre pour soit la reduire soit plein ecran*/
 var isMaximized = false;
@@ -54,7 +61,10 @@ var tpl;
 /*Fonction Hello s'ouvre au chargement de la page et affiche les tuiles*/
 function Hello() {
     console.log("Hello");
-
+    var a = 0;
+    var b = 0;
+    var films = [];
+    var series = [];
 
     var fs = require('fs');
 
@@ -65,7 +75,21 @@ function Hello() {
             console.log("library.json found");
             fs.readFile("Data/library2.json", "utf-8", function (err, data) {
             filmsList = JSON.parse(data);
-            $('#tuiles').html(Mustache.render($('#tuiles').html(), {films : filmsList})).removeClass('hidden');
+
+            for (film in filmsList) {
+                console.log(filmsList[film].state);
+                if (filmsList[film].state == "Film") {
+                    films[a] = filmsList[film];
+                    a++;
+                } else {
+                    series[b] = filmsList[film];
+                    b++;
+                };
+
+            }
+
+            $('#tuiles').html(Mustache.render($('#tuiles').html(), {films : films})).removeClass('hidden');
+            $('#tuilesSeries').html(Mustache.render($('#tuilesSeries').html(), {series : series})).removeClass('hidden');
             $('#loading').remove();
         });
         } else {
@@ -100,18 +124,35 @@ function ficheFilm(title){
             infos[2] = dataFilm[i].img;
             infos[3] = dataFilm[i].synopsis;
             infos[4] = dataFilm[i].note;
+            infos[5] = dataFilm[i].state;
+            infos[6] = dataFilm[i].runtime;
         };
     };
-    document.getElementById('fiche').style.display = 'block';
-    document.getElementById('tuiles').setAttribute("style","-webkit-filter:blur(" + 2 + "px);");
-    document.getElementById("titreFicheFilm").innerHTML = title;
-    document.getElementById("nameFicheFilm").innerHTML = infos[0];
-    document.getElementById("cheminFicheFilm").innerHTML = infos[1];
-    document.getElementById(infos[4]).setAttribute("class", "select");
-    $('#img').html('<img id="Pochette" src="'+ infos[2] +'" />');
-    $('#desc').html(infos[3]);
-    $('#infoBulle').html(infos[3]);
-    document.getElementById("play").onclick = function() { play(infos); };
+    if (infos[5] == "Film") {
+        document.getElementById('fiche').style.display = 'block';
+        document.getElementById('tuiles').setAttribute("style","-webkit-filter:blur(" + 2 + "px);");
+        document.getElementById("titreFicheFilm").innerHTML = title;
+        document.getElementById("nameFicheFilm").innerHTML = infos[0];
+        document.getElementById("cheminFicheFilm").innerHTML = infos[1];
+        document.getElementById(infos[4]).setAttribute("class", "select");
+        $('#img').html('<img id="Pochette" src="'+ infos[2] +'" />');
+        $('#desc').html(infos[3]);
+        $('#infoBulle').html(infos[3]);
+        $("#runtime").html(infos[6]);
+        document.getElementById("play").onclick = function() { play(infos); };
+    } else {
+        document.getElementById('ficheSerie').style.display = 'block';
+        document.getElementById('tuilesSeries').setAttribute("style","-webkit-filter:blur(" + 2 + "px);");
+        document.getElementById("titreFicheSerie").innerHTML = title;
+        document.getElementById("nameFicheSerie").innerHTML = infos[0];
+        document.getElementById("cheminFicheSerie").innerHTML = infos[1];
+        document.getElementById(infos[4]).setAttribute("class", "select");
+        $('#imgSerie').html('<img id="Pochette" src="'+ infos[2] +'" />');
+        $('#descSerie').html(infos[3]);
+        $("#runtimeSerie").html(infos[6]);
+        $('#infoBulleSerie').html(infos[3]);
+        document.getElementById("play").onclick = function() { play(infos); };
+    }
 }
 
 function displayTags(tag) {

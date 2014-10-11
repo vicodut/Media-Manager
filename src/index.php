@@ -13,7 +13,7 @@
         
     </head>
 
-    <body onload="Hello();dragNdrop(); ">
+    <body onload='Hello();dragNdrop();'>
 
         
 
@@ -33,17 +33,12 @@
             </div>
             <div class="OptionFilm">
                 <ul>
-                <div id="Cat" class="hidden">
-                    <li onclick="displayTags('all')" class="tag" id="all"><i class="fa fa-tags"></i>ALL</li>
-                    {{#Categories}}
-                    <li onclick="displayTags('{{cat}}')" class="tag" id="{{cat}}"><i class="fa fa-tag"></i>{{cat}}</li>
-                    {{/Categories}}
-                </div>
-                    <!-- <li><i class="fa fa-tag"></i> Action</li>
-                    <li><i class="fa fa-tag"></i> Comedie</li>
-                    <li><i class="fa fa-tag"></i> Guerre</li>
-                    <li><i class="fa fa-tag"></i> Humour</li>
-                    <li>...</li> -->
+                    <div id="Cat" class="hidden">
+                        <li onclick="displayTags('all')" class="tag" id="all"><i class="fa fa-tags"></i>ALL</li>
+                        {{#Categories}}
+                        <li onclick="displayTags('{{cat}}')" class="tag" id="{{cat}}"><i class="fa fa-tag"></i>{{cat}}</li>
+                        {{/Categories}}
+                    </div>
                 </ul>
             </div>
         </div>
@@ -65,17 +60,17 @@
                 <div id="loading"> Chargement...</div>
                 <div id="tuiles" class="hidden tuiles">
                     {{#films}}
-                    <article class="Tuile"onclick='javascript:ficheOpen("{{title}}");'>
-                        <div id="hover">
-                            <div id="Lire"><i class="fa fa-eye fa-4x"></i></div>
-                            <div class="rating">
-                                <span></span><span></span><span></span><span></span><span></span>
+                        <article class="Tuile"onclick='javascript:ficheOpen("{{title}}");'>
+                            <div id="hover">
+                                <div id="Lire"><i class="fa fa-eye fa-4x"></i></div>
+                                <div class="rating">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </div>
                             </div>
-                        </div>
-                        <div id="Pochette"><img  src="{{img}}" /></div>
-                        <div class="title" id="titre"title="{{title}}">{{title}}</div>
-                        <div class="categories" style="display: none;"><i id="cat">{{#genres}}{{name}} {{/genres}}</i></div>
-                    </article>
+                            <div id="Pochette"><img  src="{{img}}" /></div>
+                            <div class="title" id="titre"title="{{title}}">{{title}}</div>
+                            <div class="categories" style="display: none;"><i id="cat">{{#genres}}{{name}} {{/genres}}</i></div>
+                        </article>
                     {{/films}}
                 </div>
                 
@@ -92,8 +87,7 @@
                     </div>
                     <div id="contenuInfo"><span>Nom: </span><div style="display:inline;" id="nameFicheFilm"> Captain America</div></div>
                     <div id="contenuInfo"><span>Chemin: </span><div style="display:inline;" id="cheminFicheFilm"></div> </div>
-                    <div id="contenuInfo"><span>Acteurs:</span> </div>
-                    <div id="contenuInfo"><span>Duree:</span> 1h59</div>
+                    <div id="contenuInfo"><span>Duree:</span> <div style="display:inline;" id="runtime"></div> mn.</div>
                     <div id="contenuInfo"><span>Synopsis:</span></div>
                     <div id="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis arcu vel mi accumsan sagittis. Vestibulum facilisis enim augue.</div>
                     <div id="infoBulle"> N.C. </div>
@@ -103,16 +97,43 @@
                 </div>
             </div>
 
-            <div class="contenu_onglet" id="contenu_onglet_serie">Contenu de l'onglet serie
+            <div class="contenu_onglet" id="contenu_onglet_serie">
 
-            <div class="test">
-                <article id="1"></article>
-                <article id="2"></article>
-                <article id="3"></article>
-                <article id="4"></article>
-            </div>
-            </div>
+                <div id="tuilesSeries" class="hidden tuiles">
+                    {{#series}}
+                        <article class="Tuile"onclick='javascript:ficheOpen("{{title}}");'>
+                            <div id="hover">
+                                <div id="Lire"><i class="fa fa-eye fa-4x"></i></div>
+                                <div class="rating">
+                                    <span></span><span></span><span></span><span></span><span></span>
+                                </div>
+                            </div>
+                            <div id="Pochette"><img  src="{{img}}" /></div>
+                            <div class="title" id="titre"title="{{title}}">{{title}}</div>
+                            <div class="categories" style="display: none;"><i id="cat">{{#genres}}{{name}} {{/genres}}</i></div>
+                        </article>
+                    {{/series}}
+                </div>
+                <div class="FicheFilm" id="ficheSerie">
 
+                    <i class="fa fa-times fa-2x" id="closeFiche" onclick="javascript:ficheCloseSerie();"></i>
+                    <span id="imgSerie"><img id="Pochette" src="css/captamerica.jpg" /></span>
+                    <div class="titre" id="titreFicheSerie"></div>
+                    <div class="Info">
+                        <div id="Info">- Info -</div>
+
+                        <div class="rating">
+                           <span style="display: none;" id='N.C.'></span><span style="display: none;" id="0"></span><span id="5"></span><span id="4"></span><span id="3"></span><span id="2"></span><span id="1"></span>
+                        </div>
+                        <div id="contenuInfo"><span>Nom: </span><div style="display:inline;" id="nameFicheSerie"> Captain America</div></div>
+                        <div id="contenuInfo"><span>Chemin: </span><div style="display:inline;" id="cheminFicheSerie"></div> </div>
+                        <div id="contenuInfo"><span>Duree:</span> <div style="display:inline;" id="runtimeSerie"></div> mn.</div>
+                        <div id="contenuInfo"><span>Synopsis:</span></div>
+                        <div id="descSerie">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sagittis arcu vel mi accumsan sagittis. Vestibulum facilisis enim augue.</div>
+                        <div id="infoBulleSerie"> N.C. </div>
+                    </div>
+                </div>
+            </div>
             
             <div class="contenu_onglet" id="contenu_onglet_param">
                 <div id="Tri">
@@ -122,8 +143,8 @@
                         <span id="c" onclick="javascript:active('c');">Classement tmdb</span>
                     </div>
                 </div>
-                <div id="dropFolder"><p id="dropTxt">
-                Drop un Dossier pour changer le dossier de bibliotheque ;)  </p>
+                <div id="dropFolder">
+                <p id="dropTxt">Drop un Dossier pour charger le dossier de bibliotheque ;)  </p>
                 </div>
                 <script type="text/javascript" src="js/Drop.js"></script>
             </div>
@@ -131,9 +152,9 @@
         <script type="text/javascript">
 			//<!--
 			var anc_onglet = 'film';
-			change_onglet(anc_onglet);
-            var anc_tag = 'all'
+            var anc_tag = 'all';
             var anc_active = "a";
+            change_onglet(anc_onglet);
 			//-->
 		</script>
         <script type="text/javascript" src="js/search.js"></script>

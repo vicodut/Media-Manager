@@ -74,7 +74,7 @@ function save (Folder) {
     	serie = isSerie(dirs[i]);
     	
     	if (serie == "true") {
-    		findDataSerie(dirs[i], i);
+    		findDataSerie(isVO(dirs[i]), i);
     	}else {
     		findData(dirs[i], i);
     	};
@@ -87,9 +87,7 @@ function list (data,Tour) {
 
 	compteur++;
 
-	filmsList[Tour] = {"title": data[0], "path" : Folder + "\\" + data[0], "img" : data[1], "synopsis" : data[2], "note" : data[3], "genres" : data[4]};
-
-	/*console.log(compteur + ' ' +nbFilm);*/
+	filmsList[Tour] = {"title": data[0], "path" : Folder + "\\" + data[0], "img" : data[1], "synopsis" : data[2], "note" : data[3], "genres" : data[4], "state" : data[5], "runtime" : data[6]};
 	catList = categories(data[4], Tour);
 	var genre = [];
 	if (compteur == nbFilm) {
@@ -105,6 +103,7 @@ function list (data,Tour) {
 		fs.writeFileSync("Data\\category.json", catList_str, "UTF-8");
 		$('#tuiles').html('{{#films}} <article class="Tuile" onclick="javascript:ficheOpen("{{title}}");"> <div id="hover"> <div id="Lire"><i class="fa fa-eye fa-4x"></i></div> <div class="rating"> <span></span><span></span><span></span><span></span><span></span> </div> </div> <div id="Pochette"><img  src="{{img}}" /></div> <div id="titre"title="{{title}}">{{title}}</div> </article> {{/films}}');
 		$('#Cat').html('{{#Categories}}<li><i class="fa fa-tag"></i>{{cat}}</li>{{/Categories}}');
+		$('#tuilesSeries').html('{{#series}} <article class="Tuile" onclick="javascript:ficheOpen("{{title}}");"> <div id="hover"> <div id="Lire"><i class="fa fa-eye fa-4x"></i></div> <div class="rating"> <span></span><span></span><span></span><span></span><span></span> </div> </div> <div id="Pochette"><img  src="{{img}}" /></div> <div id="titre"title="{{title}}">{{title}}</div> </article> {{/series}}');
 		Hello();
 		document.getElementById('loadData').style.display = 'none';
 		txt.innerHTML = "<br /><br /><br />Thanks New Folder is: " + Folder + " <br /> Mis à jour effectuée.";
@@ -140,9 +139,7 @@ function categories (cat, Tour) {
 				a++;
 			};
 			
-		}
-		/*console.log(categorieList);*/
-		
+		}	
 	};
 
 	return categorieList.sort();
@@ -156,5 +153,19 @@ function isSerie(nomDossier) {
 	} else 
 	{
 		return "false";
+	};
+}
+function isVO(nomDossier) {
+	var nomSplit = nomDossier.split(" ");
+	var length = nomSplit.length;
+
+	if (nomSplit[length - 1] == "VO") {
+		console.log('VO');
+		var name = nomDossier.replace("- VO", "");
+		return name;
+	} else 
+	{
+		console.log('VF');
+		return nomDossier;
 	};
 }
